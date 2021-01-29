@@ -1,18 +1,19 @@
 <?php
 
-$username = $_POST['username'];
-$password = $_POST['password'];
+
 $uname = "admin";
 $pwd = "admin";
 session_start();
 if(isset($_SESSION['username'])){
-    echo "<h1>Yehey".$_SESSION["username"]."</h1>";
-    echo "<br> <a href='lougout.php'> <input type='button' value=logout name=logout></a>";
+    echo "<h1>Yehey".$_SESSION['username']."</h1>";
+    echo "<br> <a href='logout.php'> <input type='button' value=logout name=logout></a>";
 
 }
 else{
-    if($username == $uname && $password == $pwd){
+    if(( $username = $_POST['username'] == $uname) && ($_POST['password'] == $pwd)){
         $_SESSION['username'] = $uname;
+       
+
         echo "<script> location.href = 'dashboard.php' </script>";
     }
     else{
