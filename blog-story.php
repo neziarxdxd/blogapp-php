@@ -12,10 +12,13 @@ session_start();
 <?php
     if($_SESSION["name"]) {
     ?>
-        Welcome <?php echo $_SESSION["name"]; ?>.
-        <br>
-        <a href="writer.php">Write post</a>
-        <br>Click here to <a href="logout.php" tite="Logout">Logout.
+    <?php
+    require_once 'Parsedown.php';
+    $Parsedown = new Parsedown();
+
+    echo $Parsedown->text('# Hello _Parsedown_!<br> fdd');
+
+    ?>
 <?php
     }
 
