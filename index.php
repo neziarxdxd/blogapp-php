@@ -16,7 +16,9 @@ session_start();
 <?php
     }
 
-    header("Location:login.php");
+    else {
+        header("Location:login.php");
+    };
 ?>
 </body>
 </html>
