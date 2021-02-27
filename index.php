@@ -16,7 +16,7 @@ session_start();
 <?php
     }
 
-    else echo "<h1><a href='login.php'>Please login first</a> .</h1>";
+    header("Location:login.php");
 ?>
 </body>
 </html>
