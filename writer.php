@@ -17,6 +17,7 @@ session_start();
     $Parsedown = new Parsedown();
 
     echo $Parsedown->text('# Hello _Parsedown_!<br> fdd');
+    echo $Parsedown->parse('# Hello _Parsedown_!<br> fdd');
 
     ?>
 <?php
