@@ -27,9 +27,7 @@
                 );
         }
 
-        function testPHP(){
-            
-        }
+       
         
         
     </script>
