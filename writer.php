@@ -10,7 +10,7 @@
 
 <body>
     <div>
-        <h1>Write Blog </h1>
+        <h1>Write Blog <?php echo $_SESSION["name"]; ?></h1>
     </div>
     
 <textarea onkeyup="preview()" type="text" id="TextArea" ></textarea>
@@ -29,7 +29,7 @@
 
     <?php
         if($_SESSION["name"]) {
-            
+
     ?><?php
 
 

@@ -12,7 +12,7 @@
         $password = $_POST["user_password"];
         $user_name = strtolower("$user_first_name.$user_last_name");
 
-        $sql = "INSERT INTO `login_user` (`username`, `first_name`, `last_name`, `email`, `password`) VALUES ('$user_name', '$user_first_name', '$user_last_name', '$email', '$password');";
+        $sql = "INSERT INTO `login_user` (`user_name`, `first_name`, `last_name`, `email`, `password`) VALUES ('$user_name', '$user_first_name', '$user_last_name', '$email', '$password');";
 
         if ($con->query($sql) === TRUE) {
         echo "New record created successfully";
