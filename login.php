@@ -3,12 +3,22 @@
     $message="";
     if(count($_POST)>0) {
         $con = mysqli_connect('127.0.0.1:3306','root','','blog_database') or die('Unable To connect');
-        $result = mysqli_query($con,"SELECT * FROM login_user WHERE user_name='" . $_POST["user_name"] . "' and password = '". $_POST["password"]."'");
-        $row  = mysqli_fetch_array($result);
-        if(is_array($row)) {
+        $result = mysqli_query($con,"SELECT * FROM login_user WHERE user_name='" . $_POST["user_name"]."'");
+        
+        if(mysqli_num_rows($result) > 0)  {
+            while($row = mysqli_fetch_array($result)){
+                if(password_verify($_POST["password"], $row["password"])){  
+                          //return true;  
+                        $_SESSION["id"] = $row['user_name'];
+                        $_SESSION["name"] = $row['full_name'];  
+                     }  
+                     else  
+                     {  
+                          //return false;  
+                          echo '<script>alert("Wrong User Details")</script>';  
+                     }  
+            }
             
-            $_SESSION["id"] = $row['user_name'];
-            $_SESSION["name"] = $row['full_name'];
         }
         else{
         $message = "Invalid Username or Password!";
