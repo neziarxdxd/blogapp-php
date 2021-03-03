@@ -6,6 +6,11 @@ session_start();
 <html>
 <head>
 <title>User Login</title>
+<style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+    }
+</style>
 </head>
 <body>
 
@@ -13,24 +18,28 @@ session_start();
     if($_SESSION["name"]) {
     ?>
     <?php
-
+    
     require_once 'Parsedown.php';
     $Parsedown = new Parsedown();
+    $full_content = "";
     $con = mysqli_connect('127.0.0.1:3306','root','','blog_database') or die('Unable To connect');
-    $sql ="SELECT blog_story FROM `blog_user` WHERE blog_id=1006";
+    $sql ="SELECT blog_story FROM `blog_user` WHERE blog_id=1007";
     $result = mysqli_query($con,$sql);
-    
-    $parsed =  $Parsedown->text('# Hello _Parsedown_! fdd');
-    echo strip_tags($parsed);
-    echo $Parsedown->parse('# Hello _Parsedown_! <br> fdd');
-
-    
-    echo $Parsedown->line('# Hello _Parsedown_!<br> ');
-    $class_methods = get_class_methods(new Parsedown());
-
-    foreach ($class_methods as $method_name) {
-        echo "$method_name\n";
+    if(mysqli_num_rows($result) > 0)  {
+        while($row = mysqli_fetch_array($result)){                                  //return true;  
+            $full_content = $row['blog_story'];
+        }        
     }
+    else{
+    echo "error";
+    }
+    
+   
+    $parsed =  $Parsedown->text('# Hello _Parsedown_! fdd');   
+    echo $Parsedown->parse($full_content);
+
+    
+    
 
     ?>
 <?php
