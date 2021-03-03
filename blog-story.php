@@ -13,9 +13,13 @@ session_start();
     if($_SESSION["name"]) {
     ?>
     <?php
+
     require_once 'Parsedown.php';
     $Parsedown = new Parsedown();
-
+    $con = mysqli_connect('127.0.0.1:3306','root','','blog_database') or die('Unable To connect');
+    $sql ="SELECT blog_story FROM `blog_user` WHERE blog_id=1006";
+    $result = mysqli_query($con,$sql);
+    
     $parsed =  $Parsedown->text('# Hello _Parsedown_! fdd');
     echo strip_tags($parsed);
     echo $Parsedown->parse('# Hello _Parsedown_! <br> fdd');
