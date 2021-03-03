@@ -12,6 +12,14 @@
     body{
         font-family: Arial, Helvetica, sans-serif;
     }
+
+    pre{
+        font-family: Consolas,"courier new";
+  color: crimson;
+  background-color: #f1f1f1;
+  padding: 2px;
+  font-size: 105%; 
+    }
 </style>
 <body>
     <div>
@@ -23,8 +31,8 @@
     </form>
     <div id="content"></div>
    
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="modules/marked.min.js"></script>
+    <script src="modules/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script>        
         function preview() {
             $("#content").html(
