@@ -9,10 +9,10 @@
 
         $email = $_POST["user_email"];
 
-        $password = $_POST["user_password"];
+        $password = $_POST["password"];
         $user_name = strtolower("$user_first_name.$user_last_name");
-
-        $sql = "INSERT INTO `login_user` (`user_name`, `first_name`, `last_name`, `email`, `password`) VALUES ('$user_name', '$user_first_name', '$user_last_name', '$email', '$password');";
+        $hash = password_hash($password,PASSWORD_DEFAULT);
+        $sql = "INSERT INTO `login_user` (`user_name`, `first_name`, `last_name`, `email`, `password`,`full_name`) VALUES ('$user_name', '$user_first_name', '$user_last_name', '$email', '$hash','$user_first_name $user_last_name ');";
 
         if ($con->query($sql) === TRUE) {
         echo "New record created successfully";
@@ -23,7 +23,7 @@
         $con->close();
     }
     if(isset($_SESSION["id"])) {
-        header("Location:index.php");
+        header("Location:login.php");
     }
 ?>
 <html>
