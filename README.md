@@ -11,3 +11,5 @@ https://www.youtube.com/watch?v=gvGb5Z0yMFY&ab_channel=Satish
 **FORGET PASSWORD**
 https://www.allphptricks.com/forgot-password-recovery-reset-using-php-and-mysql/
 
+# ASSIGNMENTS:
+TODO: Create 
