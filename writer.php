@@ -1,3 +1,4 @@
+
 <?php
     error_reporting(0);
     session_start();
@@ -7,7 +8,11 @@
 <head>
     <title>User Login</title>
 </head>
-
+<style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+    }
+</style>
 <body>
     <div>
         <h1>Write Blog <?php echo $_SESSION["name"]; ?></h1>
