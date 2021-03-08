@@ -48,9 +48,11 @@
                 // TODOS: blog story, blog title, author, date of published,
                 $blog_story = $_POST["blog_story"];
                 $user_id = $_SESSION["id"]; 
-
+                $insert_data = mysqli_real_escape_string($con, $blog_story);
                 // inserting data
-                $sql = "INSERT INTO `blog_user` (`user_name`,`blog_story`) VALUES ('$user_id','$blog_story');";
+                $sql = "INSERT INTO `blog_user` (`user_name`,`blog_story`) VALUES ('$user_id','$insert_data');";
+
+                
                 
                 // messagge if recorded of not
                 // TODOS:pop up mesage  
