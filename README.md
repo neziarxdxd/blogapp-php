@@ -21,4 +21,12 @@ TODO: Create
 # TEST FAILED:
 - what if SAME USERNAME or SAME NAME ang pinasok 
 - what if mga walang laman 
-- 
+# TODO 
+Login
+Register
+Write Post 
+ - write post with preview 
+Edit Post
+Delete post
+show specific post
+Show all post by the user
