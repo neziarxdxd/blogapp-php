@@ -52,7 +52,8 @@
             $story_id = $_GET['edit-blog'];
             $full_content = "";
             $con = mysqli_connect('127.0.0.1:3306','root','','blog_database') or die('Unable To connect');
-            $sql ="SELECT blog_story FROM `blog_user` WHERE blog_id=$story_id";
+            $user_name = $_SESSION['id'];
+            $sql ="SELECT blog_story FROM `blog_user` WHERE blog_id=$story_id and user_name='$user_name'";
             
 
             $result = mysqli_query($con,$sql);
