@@ -54,6 +54,7 @@
             $con = mysqli_connect('127.0.0.1:3306','root','','blog_database') or die('Unable To connect');
             $sql ="SELECT blog_story FROM `blog_user` WHERE blog_id=$story_id";
             
+
             $result = mysqli_query($con,$sql);
             if(mysqli_num_rows($result) > 0)  {
                 while($row = mysqli_fetch_array($result)){                                  //return true;  
@@ -64,8 +65,16 @@
                 }       
             }
             else{
-            echo "error";
+                echo "error";
+                }
+    
+            if(isset($_POST["submit"])){
+                echo "Test";
             }
+
+
+            
+
             
            
            
