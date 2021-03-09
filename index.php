@@ -21,7 +21,9 @@ session_start();
     
    
     while($row = mysqli_fetch_array($result)){
-        echo "<p><a href='blog.php?blogstory=".$row['blog_id']."'>Data:".$row['blog_id']."</a></p>";              
+        echo "<p><a href='blog.php?blogstory=".$row['blog_id']."'>Data:".$row['blog_id']."</a>
+        <a href='blog.php?blogstory='> edit</a>
+        </p>";              
      }
     ?>
         <a href="writer.php">Write post</a>
