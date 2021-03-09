@@ -70,7 +70,19 @@
                 }
     
             if(isset($_POST["submit"])){
-                echo "Test";
+
+                $sql = "INSERT INTO `blog_user` (`user_name`,`blog_story`) VALUES ('$user_id','$insert_data');";
+
+                
+                
+                // messagge if recorded of not
+                // TODOS:pop up mesage  
+                if ($con->query($sql) === TRUE) {
+                echo "New record created successfully";
+                } else {
+                echo "Error: " . $sql . "<br>" . $con->error;
+                }
+                
             }
             ?><?php
     ?><?php

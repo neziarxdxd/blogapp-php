@@ -13,3 +13,12 @@ https://www.allphptricks.com/forgot-password-recovery-reset-using-php-and-mysql/
 
 # ASSIGNMENTS:
 TODO: Create 
+
+# UPDATES(VALIDATION):
+- table: blog_user , need to create data created and date updated
+- add title in writer post
+
+# TEST FAILED:
+- what if SAME USERNAME or SAME NAME ang pinasok 
+- what if mga walang laman 
+- 
