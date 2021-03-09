@@ -72,18 +72,7 @@
             if(isset($_POST["submit"])){
                 echo "Test";
             }
-
-
-            
-
-            
-           
-           
-        
-            
-            
-
-    ?><?php
+            ?><?php
     ?><?php
     }
         else {
