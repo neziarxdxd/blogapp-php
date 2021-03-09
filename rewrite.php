@@ -1,6 +1,7 @@
 <?php
     error_reporting(0);
     session_start();
+    
 ?>
 
 <html>
@@ -25,7 +26,9 @@
         <h1>Write Blog</h1>
     </div>
     <form name="form_blog" method="post" action="" >
-    <textarea onkeyup="preview()" type="text" id="TextArea" name="blog_story" value="<?php $full_content ?>" ></textarea>
+    <textarea onkeyup="preview()" type="text" id="TextArea" name="blog_story" value="fgf" >
+        <?php echo "gfd" ?>
+    </textarea>
     <input type="submit" name="submit" value="Submit">
     </form>
     <div id="content"></div>   
@@ -45,15 +48,19 @@
             
             require_once 'modules/Parsedown.php';
             $Parsedown = new Parsedown();
-            $full_content = "";
-            $story_id = $_GET['edit-blog'];
             
+            $story_id = $_GET['edit-blog'];
+            $full_content = "";
             $con = mysqli_connect('127.0.0.1:3306','root','','blog_database') or die('Unable To connect');
             $sql ="SELECT blog_story FROM `blog_user` WHERE blog_id=$story_id";
+            
             $result = mysqli_query($con,$sql);
             if(mysqli_num_rows($result) > 0)  {
                 while($row = mysqli_fetch_array($result)){                                  //return true;  
                     $full_content = $row['blog_story'];
+                    $full_content=mysqli_real_escape_string($con, $full_content);
+                    echo '<script>document.getElementById("TextArea").value = "'.$full_content.'";</script>';
+                    
                 }       
             }
             else{
