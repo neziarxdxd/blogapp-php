@@ -37,7 +37,7 @@
     <h3 >Enter Login Details</h3>
     First Name:
     <br>
-    <input type="text" name="user_first_name">
+    <input type="text" name="user_first_name" require="">
     <br>
     Last Name:
     <br>
