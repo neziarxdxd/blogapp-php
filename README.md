@@ -19,8 +19,8 @@ TODO: Create
 - add title in writer post
 
 # TEST FAILED:
-- what if SAME USERNAME or SAME NAME ang pinasok 
-- what if mga walang laman 
+/ what if SAME USERNAME or SAME NAME ang pinasok 
+/ what if mga walang laman 
 # TODO 
 Login
 Register
