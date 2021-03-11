@@ -27,7 +27,7 @@
     </div>
     <form name="form_blog" method="post" action="" >
     <textarea onkeyup="preview()" type="text" id="TextArea" name="blog_story" value="fgf" >
-        <?php echo "gfd" ?>
+      
     </textarea>
     <input type="submit" name="submit" value="Submit">
     </form>
@@ -39,6 +39,24 @@
             $("#content").html(
                 marked($("#TextArea").val())
             );
+        }
+        
+        $("#sub").click( function() {
+        $.post( $("#myForm").attr("action"), 
+                $("#myForm :input").serializeArray(), 
+                function(info){ $("#result").html(info); 
+        });
+        clearInput();
+        });
+        
+        $("#myForm").submit( function() {
+        return false;
+        });
+        
+        function clearInput() {
+        $("#myForm :input").each( function() {
+        $(this).val('');
+        });
         }
     </script>
     <?php
@@ -69,21 +87,7 @@
                 echo "error";
                 }
     
-            if(isset($_POST["submit"])){
-
-                $sql = "INSERT INTO `blog_user` (`user_name`,`blog_story`) VALUES ('$user_id','$insert_data');";
-
-                
-                
-                // messagge if recorded of not
-                // TODOS:pop up mesage  
-                if ($con->query($sql) === TRUE) {
-                echo "New record created successfully";
-                } else {
-                echo "Error: " . $sql . "<br>" . $con->error;
-                }
-                
-            }
+            
             ?><?php
     ?><?php
     }
