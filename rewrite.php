@@ -25,7 +25,7 @@
     <div>
         <h1>Write Blog</h1>
     </div>
-    <form name="form_blog" method="post" action="" >
+    <form name="form_blog" method="post" action="update_post.php" >
     <textarea onkeyup="preview()" type="text" id="TextArea" name="blog_story" value="fgf" >
       
     </textarea>
