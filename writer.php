@@ -39,6 +39,7 @@
         }
     </script>
     <?php
+        
         if($_SESSION["name"]) {
             if(count($_POST)>0) {
                 // connect database 
