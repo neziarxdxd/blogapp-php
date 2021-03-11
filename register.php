@@ -14,7 +14,7 @@
         $hash = password_hash($password,PASSWORD_DEFAULT);
         $sql_query = "SELECT * FROM user_name='$user_name' or email='$email'";
         $sql = "INSERT INTO `login_user` (`user_name`, `first_name`, `last_name`, `email`, `password`,`full_name`) VALUES ('$user_name', '$user_first_name', '$user_last_name', '$email', '$hash','$user_first_name $user_last_name ');";
-        if($con->query($sql_query) === FALSE){
+        if($con->query($sql_query) === TRUE){
             echo "There is existing email or username ";
         }
         else{
