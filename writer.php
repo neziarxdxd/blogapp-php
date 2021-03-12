@@ -24,6 +24,7 @@
     <div>
         <h1>Write Blog</h1>
     </div>
+    <!-- need to change this -->
     <form name="form_blog" method="post" action="" >
     <textarea onkeyup="preview()" type="text" id="TextArea" name="blog_story" ></textarea>
     <input type="submit" name="submit" value="Submit">
