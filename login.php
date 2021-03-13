@@ -106,58 +106,30 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <div class="post-preview">
-          <a href="post.html">
-            <h2 class="post-title">
-              Man must explore, and this is exploration at its greatest
-            </h2>
-            <h3 class="post-subtitle">
-              Problems look mighty small from 150 miles up
-            </h3>
-          </a>
-          <p class="post-meta">Posted by
-            <a href="#">Start Bootstrap</a>
-            on September 24, 2019</p>
-        </div>
+        <?php
+    $con = mysqli_connect('127.0.0.1:3306','root','','blog_database') or die('Unable To connect');
+    $result = mysqli_query($con,"SELECT blog_user.*, login_user.first_name,login_user.last_name FROM `blog_user` inner join login_user on blog_user.user_name = login_user.user_name order by date_update desc");
+  
+    while($row = mysqli_fetch_array($result)){   
+        $title = $row['blog_title'];
+        $full_name = $row['first_name'] . " ".$row['last_name'];
+        $time = strtotime($row['date_update']);
+        $newformat = date('F j, Y',$time);
+          
+        echo " 
         <hr>
-        <div class="post-preview">
-          <a href="post.html">
-            <h2 class="post-title">
-              I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.
+        <div class='post-preview'>
+          <a href='post.html'>
+            <h2 class='post-title'>
+              $title
             </h2>
           </a>
-          <p class="post-meta">Posted by
-            <a href="#">Start Bootstrap</a>
-            on September 18, 2019</p>
+          <p class='post-meta'>Posted by
+            <a href='#'>$full_name</a>
+            on $newformat</p>
         </div>
-        <hr>
-        <div class="post-preview">
-          <a href="post.html">
-            <h2 class="post-title">
-              Science has not yet mastered prophecy
-            </h2>
-            <h3 class="post-subtitle">
-              We predict too much for the next year and yet far too little for the next ten.
-            </h3>
-          </a>
-          <p class="post-meta">Posted by
-            <a href="#">Start Bootstrap</a>
-            on August 24, 2019</p>
-        </div>
-        <hr>
-        <div class="post-preview">
-          <a href="post.html">
-            <h2 class="post-title">
-              Failure is not an option
-            </h2>
-            <h3 class="post-subtitle">
-              Many say exploration is part of our destiny, but it’s actually our duty to future generations.
-            </h3>
-          </a>
-          <p class="post-meta">Posted by
-            <a href="#">Start Bootstrap</a>
-            on July 8, 2019</p>
-        </div>
+       
+        ";}?>
         <hr>
         <!-- Pager -->
         <div class="clearfix">
