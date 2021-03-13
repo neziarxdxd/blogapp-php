@@ -12,10 +12,9 @@ session_start();
 <html lang="en">
 
 <head>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="icon" href="img/logo2.png">
+  <link rel="icon" href="img/logo2.png">
   <title>Blog Matters</title>
 
   <!-- Bootstrap core CSS -->
@@ -48,28 +47,17 @@ session_start();
           <li class="nav-item">
             <a class="nav-link" href="index.html">Home</a>
           </li>
-          
-        
           <li class="nav-item">
-          <a href="logout.php" class="nav-link">Logout.</a>
-            
-          </li>
-       
+          <a href="logout.php" class="nav-link">Logout.</a>            
+          </li>       
            </li>
-      
         </ul>
       </div>
     </div>
   </nav>
-
   <?php
-    if($_SESSION["name"]) {  
-    
-    ?>
-    
-    
-    
-
+    if($_SESSION["name"]) {    
+    ?>    
   <!-- Page Header -->
   <header class="masthead" style="background-image: url('img/userprof.jpg')">
   	 <div class="overlay"></div>
