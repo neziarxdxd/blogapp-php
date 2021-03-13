@@ -6,28 +6,232 @@ session_start();
 <head>
 <title>User Login</title>
 </head>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="icon" href="img/logo2.png">
+  <title>Blog Matters</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <!-- <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> -->
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <!-- Custom styles for this template -->
+  <link href="css/main.css" rel="stylesheet">
+  <link href="css/login-register.css" rel="stylesheet" />
+
+</head>
+
 <body>
 
-<?php
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+     <div class="container-fluid">
+     <a class="navbar-brand" href="index.html"><img style ="max-height:100px; "src="img/logo.png" p></a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          
+        
+          <li class="nav-item">
+          <a href="logout.php" class="nav-link">Logout.</a>
+            
+          </li>
+       
+           </li>
+      
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <?php
     if($_SESSION["name"]) {  
     
     ?>
-    Welcome <?php echo $_SESSION["name"]; ?>.
-    <br>
+    
+    
+    
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('img/userprof.jpg')">
+  	 <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Welcome!</h1>
+            <span class="subheading"> <?php echo $_SESSION["name"]; ?></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="container">
+    <div class="container">
+    <div class="row">  
+  <h2>List of your works</h2>
+  <li class="list-inline-item" style="margin-left: 320px; margin-bottom: 25px;">
+              <a href="writer.php">
+                <span class="fa-stack fa-lg">
+                 <i class="far fa-plus-square fa-2x"></i>
+                </span>
+              </a>
+            </li>
+            <br>
+          </div>
+    </div>
     <?php
     $con = mysqli_connect('127.0.0.1:3306','root','','blog_database') or die('Unable To connect');
     $result = mysqli_query($con,"SELECT * FROM blog_user WHERE user_name='" . $_SESSION["id"]."'");
-    
-
-   // i'll delte this try to use for
-    while($row = mysqli_fetch_array($result)){        
-        echo "<p><a href='blog.php?blogstory=".$row['blog_id']."'>Data:".$row['blog_id']."</a> 
-        <a href='rewrite.php?edit-blog=".$row['blog_id']."'> edit</a> </p>";
+  
+    while($row = mysqli_fetch_array($result)){   
+        $time = strtotime($row['date_update']);
+        $newformat = date('F j, Y',$time);
+          
+        echo "  <div class='card'>      
+          <div class='card-body'>
+          <div class=' h2 font-weight-bold'><a href='blog.php?blogstory=".$row['blog_id']."'>".$row['blog_title']."</a></div> 
+          Date Publish: ".$newformat." </div>         
+          <div class='card-footer '><a href='rewrite.php?edit-blog=".$row['blog_id']."' class='btn btn-primary'><i class='fas fa-edit'></i>Edit</a>&nbsp;<a href='#' class='btn btn-danger'><i class='fa fa-trash-o fa-lg'></i>Delete</a></div>
+        </div><br>";  
                     
      }
     ?>
-        <a href="writer.php">Write post</a>
-        <br>Click here to <a href="logout.php" tite="Logout">Logout.</a>
+
+</div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; BLOG-APP Group</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  
+
+
+     <div class="modal fade login" id="loginModal">
+          <div class="modal-dialog login animated">
+              <div class="modal-content">
+                 <div class="modal-header">
+                   <h4 class="modal-title">Login with</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                       
+                    </div>
+                    <div class="modal-body">
+                        <div class="box">
+                             <div class="content">
+                      
+                                <hr class="dashed">
+                                <div class="error"></div>
+                                <div class="form loginBox">
+                                    <form method="" action="" accept-charset="UTF-8">
+                                    <input id="email" class="form-control" type="text" placeholder="Email" name="email">
+                                    <input id="password" class="form-control" type="password" placeholder="Password" name="password">
+                                    <input class="btn btn-default btn-login" type="button" value="Login" onclick="loginAjax()">
+                                    </form>
+                                </div>
+                             </div>
+                        </div>
+                        <div class="box">
+                            <div class="content registerBox" style="display:none;">
+                             <div class="form">
+                                <form method="" html="{:multipart=>true}" data-remote="true" action="" accept-charset="UTF-8">
+                                <input id="email" class="form-control" type="text" placeholder="Email" name="email">
+                                <input id="password" class="form-control" type="password" placeholder="Password" name="password">
+                                <input id="password_confirmation" class="form-control" type="password" placeholder="Repeat Password" name="password_confirmation">
+                                <input class="btn btn-default btn-register" type="button" value="Create account" name="commit">
+                                </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="forgot login-footer">
+                            <span>Looking to
+                                 <a href="javascript: showRegisterForm();">create an account</a>
+                            ?</span>
+                        </div>
+                        <div class="forgot register-footer" style="display:none">
+                             <span>Already have an account?</span>
+                             <a href="javascript: showLoginForm();">Login</a>
+                        </div>
+                    </div>
+              </div>
+          </div>
+      </div>
+  
+
+<!-- -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/main.min.js"></script>
+  <script src="js/login-register.js" type="text/javascript"></script>
+
+
+
+        
+       
     
 <?php
     }
