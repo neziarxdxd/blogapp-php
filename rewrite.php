@@ -100,7 +100,7 @@
                     $test= $row['blog_id'];
                     echo "<script> console.log($test); </script>";
                     $full_content=mysqli_real_escape_string($con, $full_content);
-                    echo '<script>document.getElementById("TextArea").value = "'.$full_content.'";</script>';
+                    echo '<script>document.getElementById("editor").value = "'.$full_content.'";</script>';
                     
                 }       
             }
