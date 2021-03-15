@@ -121,7 +121,7 @@
         <div class='post-preview'>
           <a href='post.html'>
             <h2 class='post-title'>
-              $title
+              <a href=".$title."
             </h2>
           </a>
           <p class='post-meta'>Posted by
