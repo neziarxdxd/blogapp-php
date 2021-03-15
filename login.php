@@ -119,11 +119,11 @@
         echo " 
         <hr>
         <div class='post-preview'>
-          <a href='post.html'>
+         
             <h2 class='post-title'>
-              <a href=".$title."
+             $title
             </h2>
-          </a>
+        
           <p class='post-meta'>Posted by
             <a href='#'>$full_name</a>
             on $newformat</p>
