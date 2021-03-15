@@ -28,16 +28,18 @@
     <div class="row" id="row_style">
         <h4 class="text-center">Submit new post</h4>
         <div class="col-md-4   col-md-offset-4">
+        <form method="POST" name="submit">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Title">
+                <input type="text" name="blog_title" class="form-control" placeholder="Title">
             </div>
-            <textarea id="editor" cols="30" rows="10"></textarea>
+            <textarea id="editor" name="blog_story" cols="30" rows="10"></textarea>
             <br>
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Tags">
             </div>
             <div class="form-group">
-                <button onclick="testing()" class="btn btn-primary" id="submit">Submit new post</button>
+                <input onclick="testing()" type="submit" name="submit" class="btn btn-primary" id="submit">Submit new post</button>
+                </form>
             </div>
         </div>
     </div>
@@ -81,10 +83,15 @@
                 // get data blog story 
                 // TODOS: blog story, blog title, author, date of published,
                 $blog_story = $_POST["blog_story"];
+                $blog_title = $_POST['blog_title'];
                 $user_id = $_SESSION["id"]; 
+                $today = date("Y-m-d");
+                
+                
+
                 $insert_data = mysqli_real_escape_string($con, $blog_story);
                 // inserting data
-                $sql = "INSERT INTO `blog_user` (`user_name`,`blog_story`) VALUES ('$user_id','$insert_data');";
+                $sql = "INSERT INTO `blog_user` (`blog_title`,`user_name`,`blog_story`, `date_update`,`date_publish`) VALUES ('$blog_title','$user_id','$insert_data','$today','$today');";
 
                 
                 
