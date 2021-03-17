@@ -68,14 +68,10 @@
             <a class="nav-link" href="index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
+            <a class="nav-link" href="about.html">Docs</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="post.html">Sample Post</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
+         
+        
           <li class="nav-item">
             <a class="nav-link" data-toggle="modal" href="javascript:void(0)" onmousedown="openLoginModal();">Log in</a>
           </li>
@@ -209,11 +205,14 @@
                         <div class="box">
                             <div class="content registerBox" style="display:none;">
                              <div class="form">
-                                <form method="" html="{:multipart=>true}" data-remote="true" action="" accept-charset="UTF-8">
-                                <input id="email" class="form-control" type="text" placeholder="User Name" name="user_name">
-                                <input id="password" class="form-control" type="password" placeholder="Password" name="password">
+                                <form method="post" html="{:multipart=>true}" data-remote="true" action="" accept-charset="UTF-8">
+                                <input placeholder="First Name" class="form-control" type="text" name="user_first_name" onkeyup="preview()" id="user_first" required>
+                                <input placeholder="Last Name"  class="form-control" type="text" name="user_last_name" onkeyup="preview()" id="user_last" required>
+                                <input placeholder="User Name" class="form-control" type="text" name = "user_name" id="userName" required>
+                                <input placeholder="Email" class="form-control" type="text" name="user_email" required>
+                                <input placeholder="Password" class="form-control" type="password" name="password" required>
                                 <input id="password_confirmation" class="form-control" type="password" placeholder="Repeat Password" name="password_confirmation">
-                                <input class="btn btn-default btn-register" type="button" value="Create account" name="commit">
+                                <input class="btn btn-default btn-register" type="submit" value="Create account" name="btnRegister">
                                 </form>
                                 </div>
                             </div>
