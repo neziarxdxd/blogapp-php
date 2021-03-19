@@ -30,7 +30,8 @@
         <h4 class="text-center">Submit new post</h4>
         <div class="col-md-4   col-md-offset-4">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Title">
+                <form>
+                <input type="text" id="title_edit" class="form-control" placeholder="Title">
             </div>
             <textarea id="editor" cols="30" rows="10"></textarea>
             <br>
@@ -38,8 +39,9 @@
                 <input type="text" class="form-control" placeholder="Tags">
             </div>
             <div class="form-group">
-                <button onclick="testing()" class="btn btn-primary" id="submit">Submit new post</button>
+                <button onclick="testing()" class="btn btn-primary" id="submit" name="update_button">Submit new post</button>
             </div>
+        </div>
         </div>
     </div>
 </div>
@@ -88,7 +90,7 @@
             $full_content = "";
             $con = mysqli_connect('127.0.0.1:3306','root','','blog_database') or die('Unable To connect');
             $user_name = $_SESSION['id'];
-            $sql ="SELECT blog_story,blog_id FROM `blog_user` WHERE blog_id=$story_id and user_name='$user_name'";
+            $sql ="SELECT blog_story,blog_id,blog_title FROM `blog_user` WHERE blog_id=$story_id and user_name='$user_name'";
             
             
             $result = mysqli_query($con,$sql);
@@ -100,13 +102,17 @@
                     $test= $row['blog_id'];
                     echo "<script> console.log($test); </script>";
                     $full_content=mysqli_real_escape_string($con, $full_content);
+                    $full_title=mysqli_real_escape_string($con, $row['blog_title']);
+                    echo '<script>document.getElementById("title_edit").value = "'.$full_title.'";</script>';
                     echo '<script>document.getElementById("editor").value = "'.$full_content.'";</script>';
                     
                 }       
-            }
+            }          
+
+
             else{
                 echo "error";
-                }
+            }
     
             
             ?><?php
