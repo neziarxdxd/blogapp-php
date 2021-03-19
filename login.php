@@ -1,7 +1,7 @@
 <?php
     session_start();
     $message="";
-    if(count($_POST)>0) {
+    if(isset($_POST["login_button"])) {
         $con = mysqli_connect('127.0.0.1:3306','root','','blog_database') or die('Unable To connect');
         $result = mysqli_query($con,"SELECT * FROM login_user WHERE user_name='" . $_POST["user_name"]."'");
         
@@ -196,7 +196,7 @@
                                     <form method="post" action="" accept-charset="UTF-8">
                                     <input id="email" class="form-control" type="text" placeholder="Email" name="user_name">
                                     <input id="password" class="form-control" type="password" placeholder="Password" name="password">
-                                     <input class="btn btn-default btn-login" name ="submit" type="submit" value="Login" >
+                                     <input class="btn btn-default btn-login" name ="login_button" type="submit" value="Login" >
                                     </form>
                                 </div>
                              </div>
@@ -212,7 +212,7 @@
                                 <input placeholder="Email" class="form-control" type="text" name="user_email" required>
                                 <input placeholder="Password" class="form-control" type="password" name="password" required>
                                 <input id="password_confirmation" class="form-control" type="password" placeholder="Repeat Password" name="password_confirmation">
-                                <input class="btn btn-default btn-register" type="submit" value="Create account" name="btnRegister">
+                                <input class="btn btn-default btn-register" type="submit" value="Create account" name="register_button">
                                 </form>
                                 </div>
                             </div>
