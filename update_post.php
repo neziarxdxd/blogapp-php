@@ -18,7 +18,7 @@
     
     if ($con->query($sql) === TRUE) {
         echo "New record created successfully";
-        header("Location:user_profile.php");
+        header("Location:blog.php?blogstory=$blog_id");
         } 
     else {
         echo "Error: " . $sql . "<br>" . $con->error;

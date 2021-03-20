@@ -93,7 +93,7 @@ session_start();
     </div>
     <?php
     $con = mysqli_connect('127.0.0.1:3306','root','','blog_database') or die('Unable To connect');
-    $result = mysqli_query($con,"SELECT * FROM blog_user WHERE user_name='" . $_SESSION["id"]."' ORDER BY `blog_user`.`date_update` ASC  ");
+    $result = mysqli_query($con,"SELECT * FROM blog_user WHERE user_name='" . $_SESSION["id"]."' ORDER BY `blog_user`.`date_update` DESC  ");
   
     while($row = mysqli_fetch_array($result)){   
         $time = strtotime($row['date_update']);
