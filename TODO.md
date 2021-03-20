@@ -9,7 +9,6 @@ link the posts
 remove not necessary buttons
 correct all linkings
 delete buttons
-
 make title as header font 
 
 
