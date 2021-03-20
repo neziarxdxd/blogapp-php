@@ -3,8 +3,7 @@
     $con = mysqli_connect('127.0.0.1:3306','root','','blog_database') or die('Unable To connect');
     $message="";
 
-    if(isset($_POST["register_button"])) {
-      
+    if(isset($_POST["register_button"])) {     
 
       $user_first_name = $_POST["user_first_name"];
       $user_last_name = $_POST["user_last_name"];
@@ -28,8 +27,7 @@
       }       
 
       $con->close();
-  }
-  
+  } 
   
 
     if(isset($_POST["login_button"])) {

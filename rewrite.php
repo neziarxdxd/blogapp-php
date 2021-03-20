@@ -12,7 +12,6 @@
 
     <link rel="stylesheet" type="text/css" href="bootstrap-2/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="font-awesome-2/css/font-awesome.min.css" />
-
     <script type="text/javascript" src="js-2/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="bootstrap-2/js/bootstrap.min.js"></script>
 </head>
