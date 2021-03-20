@@ -103,7 +103,7 @@ session_start();
           <div class='card-body'>
           <div class=' h2 font-weight-bold'><a href='blog.php?blogstory=".$row['blog_id']."'>".$row['blog_title']."</a></div> 
           Date Publish: ".$newformat." </div>         
-          <div class='card-footer '><a href='rewrite.php?edit-blog=".$row['blog_id']."' class='btn btn-primary'><i class='fas fa-edit'></i>Edit</a>&nbsp;<a href='#' class='btn btn-danger'><i class='fa fa-trash-o fa-lg'></i>Delete</a></div>
+          <div class='card-footer '><a href='rewrite.php?edit-blog=".$row['blog_id']."' class='btn btn-primary'><i class='fas fa-edit'></i>Edit</a>&nbsp;<a href='#' data-toggle='modal' data-target='#exampleModal' class='btn btn-danger'><i class='fa fa-trash-o fa-lg'></i>Delete</a></div>
         </div><br>";  
                     
      }
@@ -155,56 +155,27 @@ session_start();
   
 
 
-     <div class="modal fade login" id="loginModal">
-          <div class="modal-dialog login animated">
-              <div class="modal-content">
-                 <div class="modal-header">
-                   <h4 class="modal-title">Login with</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                       
-                    </div>
-                    <div class="modal-body">
-                        <div class="box">
-                             <div class="content">
-                      
-                                <hr class="dashed">
-                                <div class="error"></div>
-                                <div class="form loginBox">
-                                    <form method="" action="" accept-charset="UTF-8">
-                                    <input id="email" class="form-control" type="text" placeholder="Email" name="email">
-                                    <input id="password" class="form-control" type="password" placeholder="Password" name="password">
-                                    <input class="btn btn-default btn-login" type="button" value="Login" onclick="loginAjax()">
-                                    </form>
-                                </div>
-                             </div>
-                        </div>
-                        <div class="box">
-                            <div class="content registerBox" style="display:none;">
-                             <div class="form">
-                                <form method="" html="{:multipart=>true}" data-remote="true" action="" accept-charset="UTF-8">
-                                <input id="email" class="form-control" type="text" placeholder="Email" name="email">
-                                <input id="password" class="form-control" type="password" placeholder="Password" name="password">
-                                <input id="password_confirmation" class="form-control" type="password" placeholder="Repeat Password" name="password_confirmation">
-                                <input class="btn btn-default btn-register" type="button" value="Create account" name="commit">
-                                </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <div class="forgot login-footer">
-                            <span>Looking to
-                                 <a href="javascript: showRegisterForm();">create an account</a>
-                            ?</span>
-                        </div>
-                        <div class="forgot register-footer" style="display:none">
-                             <span>Already have an account?</span>
-                             <a href="javascript: showLoginForm();">Login</a>
-                        </div>
-                    </div>
-              </div>
-          </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delte post</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
+      <div class="modal-body">        
+      Do you want to delete this post?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <form method="post">
+        <button type="button" name = "delete" class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
   
 
 <!-- -->
