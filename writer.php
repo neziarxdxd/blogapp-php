@@ -99,6 +99,7 @@
                 // TODOS:pop up mesage  
                 if ($con->query($sql) === TRUE) {
                 echo "New record created successfully";
+                header("location:user_profile.php");
                 } else {
                 echo "Error: " . $sql . "<br>" . $con->error;
                 }
