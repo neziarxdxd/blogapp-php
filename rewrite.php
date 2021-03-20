@@ -19,29 +19,32 @@
 <body>
 
 <div class="container">
-
-<div class="page-header">
+    <div class="page-header">
     <h1>New Blog Post <small>A responsive blog post template</small></h1>
-</div>
+    </div>
 
 <!-- New Blog Post - START -->
-<div class="container">
-    <div class="row" id="row_style">
-        <h4 class="text-center">Submit new post</h4>
-        <div class="col-md-4   col-md-offset-4">
-            <div class="form-group">
-                <form>
-                <input type="text" id="title_edit" class="form-control" placeholder="Title">
-            </div>
-            <textarea id="editor" cols="30" rows="10"></textarea>
-            <br>
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Tags">
-            </div>
-            <div class="form-group">
-                <button onclick="testing()" class="btn btn-primary" id="submit" name="update_button">Submit new post</button>
+    <div class="container">
+        <div class="row" id="row_style">
+            <h4 class="text-center">Submit new post</h4>
+            <div class="col-md-4   col-md-offset-4">
+                <form method="POST">
+                <div class="form-group">
+                
+                    <input type="text" id="title_edit"  name="blog_title" class="form-control" placeholder="Title">
+                </div>
+                    <textarea id="editor" name="blog_story" cols="30" rows="10"></textarea>
+                    <br>
+                <div class="form-group">
+                    <input type="text"  class="form-control" placeholder="Tags">
+                </div>
+                <div class="form-group">
+                    <button onclick="testing()" class="btn btn-primary" id="submit" name="update_button">Submit new post</button>
+                </div>
+            </form>
             </div>
         </div>
+
         </div>
     </div>
 </div>
@@ -107,12 +110,33 @@
                     echo '<script>document.getElementById("editor").value = "'.$full_content.'";</script>';
                     
                 }       
-            }          
+            }  
+            if(isset($_POST['update_button'])){
+                $blog_story = $_POST["blog_story"];
+                $blog_title = $_POST["blog_title"];
+                $user_id = $_SESSION["id"];
+                echo "test: $user_id"; 
+                $blog_id = $_SESSION['blog_id'];
+                echo "test01: $blog_id";
+                $today_date = date("Y-m-d");
+                echo $today_date;
+                $insert_data = mysqli_real_escape_string($con, $blog_story);
+                // inserting data
+                $sql = "UPDATE `blog_user` SET `date_update` = '$today_date',`blog_title` = '$blog_title', `blog_story` = '$insert_data' WHERE `blog_id` = $blog_id;";
+                
+                if ($con->query($sql) === TRUE) {
+                    echo "New record created successfully";
+                    header("location:user_profile.php");
+                    
+                } 
+                else {
+                    echo "Error: " . $sql . "<br>" . $con->error;
+                }
+
+            }        
 
 
-            else{
-                echo "error";
-            }
+          
     
             
             ?><?php
