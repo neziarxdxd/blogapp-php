@@ -19,9 +19,10 @@
     if ($con->query($sql) === TRUE) {
         echo "New record created successfully";
         header("Location:user_profile.php");
-        } else {
+        } 
+    else {
         echo "Error: " . $sql . "<br>" . $con->error;
-        }
+    }
 
         $con->close();
 
