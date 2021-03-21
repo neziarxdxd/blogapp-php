@@ -10,23 +10,23 @@
     <title>New Blog Post Template | PrepBootstrap</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="bootstrap-2/css/bootstrap.min.css" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
     <link rel="stylesheet" type="text/css" href="font-awesome-2/css/font-awesome.min.css" />
     <script type="text/javascript" src="js-2/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="bootstrap-2/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-<div class="container">
-    <div class="page-header">
-    <h1>New Blog Post <small>A responsive blog post template</small></h1>
-    </div>
+
+
 
 <!-- New Blog Post - START -->
     <div class="container">
-        <div class="row" id="row_style">
-            <h4 class="text-center">Submit new post</h4>
-            <div class="col-md-4   col-md-offset-4">
+    <div class="row" id="row_style">
+        <h4 class="text-center">Submit new post</h4>
+        <div class="col-md-12   col-md-offset-12">
                 <form method="POST">
                 <div class="form-group">
                 
@@ -34,9 +34,7 @@
                 </div>
                     <textarea id="editor" name="blog_story" cols="30" rows="10"></textarea>
                     <br>
-                <div class="form-group">
-                    <input type="text"  class="form-control" placeholder="Tags">
-                </div>
+               
                 <div class="form-group">
                     <button onclick="testing()" class="btn btn-primary" id="submit" name="update_button">Submit new post</button>
                 </div>
@@ -100,7 +98,7 @@
                 while($row = mysqli_fetch_array($result)){                                  //return true;  
                     $full_content = $row['blog_story'];
                     $_SESSION['blog_id'] = $row['blog_id'];
-                    echo $row['blog_id'];
+                   
                     $test= $row['blog_id'];
                     echo "<script> console.log($test); </script>";
                     $full_content=mysqli_real_escape_string($con, $full_content);
@@ -114,9 +112,9 @@
                 $blog_story = $_POST["blog_story"];
                 $blog_title = $_POST["blog_title"];
                 $user_id = $_SESSION["id"];
-                echo "test: $user_id"; 
+        
                 $blog_id = $_SESSION['blog_id'];
-                echo "test01: $blog_id";
+               
                 $today_date = date("Y-m-d");
                 echo $today_date;
                 $insert_data = mysqli_real_escape_string($con, $blog_story);

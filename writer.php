@@ -9,36 +9,37 @@
     <title>New Blog Post Template | PrepBootstrap</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="bootstrap-2/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="font-awesome-2/css/font-awesome.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
+    <link rel="stylesheet" type="text/css" href="font-awesome-2/css/font-awesome.min.css" />
+    
     <script type="text/javascript" src="js-2/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="bootstrap-2/js/bootstrap.min.js"></script>
+
+
+    <!-- ADD -->
+
+    
 </head>
 <body>
 
-<div class="container">
 
-<div class="page-header">
-    <h1>New Blog Post <small>A responsive blog post template</small></h1>
-</div>
-
+<?php include 'navbar.php'?>
+<header></header>
 <!-- New Blog Post - START -->
 <div class="container">
     <div class="row" id="row_style">
         <h4 class="text-center">Submit new post</h4>
-        <div class="col-md-4   col-md-offset-4">
+        <div class="col-md-12   col-md-offset-12">
         <form method="POST" name="submit">
             <div class="form-group">
                 <input type="text" name="blog_title" class="form-control" placeholder="Title">
             </div>
             <textarea id="editor" name="blog_story" cols="30" rows="10"></textarea>
             <br>
+            
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Tags">
-            </div>
-            <div class="form-group">
-                <input onclick="testing()" type="submit" name="submit" class="btn btn-primary" id="submit">Submit new post</button>
+                <input onclick="testing()" type="submit" name="submit" class="btn btn-primary" id="submit"></button>
                 </form>
             </div>
         </div>
@@ -113,6 +114,8 @@
         header("Location:index.php");
         };
     ?>
+
 </body>
+
 
 </html>

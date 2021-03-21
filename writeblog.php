@@ -56,45 +56,26 @@ session_start();
 
   <!-- Main Content -->
   <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-        <div class="container">
-    <div class="container">
-    <div class="row">  
-  <h2>List of your works</h2>
-  <li class="list-inline-item" style="margin-left: 320px; margin-bottom: 25px;">
-              <a href="writer.php">
-                <span class="fa-stack fa-lg">
-                 <i class="far fa-plus-square fa-2x"></i>
-                </span>
-              </a>
-            </li>
+    <div class="row" id="row_style">
+        
+        <div class="col-md-4   col-md-offset-4">
+        <form method="POST" name="submit">
+        <h4 class="text-center">Submit new post</h4>
+            <div class="form-group">
+                <input type="text" name="blog_title" class="form-control" placeholder="Title">
+            </div>
+            <textarea id="editor" name="blog_story" cols="30" rows="10"></textarea>
             <br>
-          </div>
+            <div class="form-group">
+               
+            </div>
+            <div class="form-group">
+                <input onclick="testing()" type="submit" name="submit" class="btn btn-primary" id="submit"></button>
+                </form>
+            </div>
+        </div>
     </div>
-    <?php
-    $con = mysqli_connect('127.0.0.1:3306','root','','blog_database') or die('Unable To connect');
-    $result = mysqli_query($con,"SELECT * FROM blog_user WHERE user_name='" . $_SESSION["id"]."' ORDER BY `blog_user`.`date_update` DESC  ");
-  
-    while($row = mysqli_fetch_array($result)){   
-        $time = strtotime($row['date_update']);
-        $newformat = date('F j, Y',$time);
-          
-        echo "  <div class='card'>      
-          <div class='card-body'>
-          <div class=' h2 font-weight-bold'><a href='blog.php?blogstory=".$row['blog_id']."'>".$row['blog_title']."</a></div> 
-          Date Publish: ".$newformat." </div>         
-          <div class='card-footer '><a href='rewrite.php?edit-blog=".$row['blog_id']."' class='btn btn-primary'><i class='fas fa-edit'></i>Edit</a>&nbsp;<a href='#' data-toggle='modal' data-target='#exampleModal' class='btn btn-danger'><i class='fa fa-trash-o fa-lg'></i>Delete</a></div>
-        </div><br>";  
-                    
-     }
-    ?>
-
 </div>
-    </div>
-  </div>
-
-  <hr>
 
   <!-- Footer -->
   <footer>
@@ -136,27 +117,7 @@ session_start();
   
 
 
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Delte post</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">        
-      Do you want to delete this post?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <form method="post">
-        <button type="button" name = "delete" class="btn btn-danger">Delete</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
+
   
 
 <!-- -->
