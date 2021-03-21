@@ -22,7 +22,7 @@
           if ($con->query($sql) === TRUE) {
               echo "New record created successfully";
               } else {
-              echo "Error: " . $sql . "<br>" . $con->error;
+                echo '<script>alert("Wrong User Details")</script>';
               }
       }       
 
