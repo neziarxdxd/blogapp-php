@@ -116,14 +116,15 @@
                 $blog_id = $_SESSION['blog_id'];
                
                 $today_date = date("Y-m-d");
-                echo $today_date;
+                
                 $insert_data = mysqli_real_escape_string($con, $blog_story);
                 // inserting data
                 $sql = "UPDATE `blog_user` SET `date_update` = '$today_date',`blog_title` = '$blog_title', `blog_story` = '$insert_data' WHERE `blog_id` = $blog_id;";
                 
                 if ($con->query($sql) === TRUE) {
-                    echo "New record created successfully";
-                    header("location:user_profile.php");
+                    
+                    echo "<script>window.location.href='user_profile.php';</script>";
+                    exit;
                     
                 } 
                 else {
