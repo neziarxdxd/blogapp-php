@@ -44,7 +44,11 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-     
+     <ul  class="navbar-nav mr-auto">
+        <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+     </ul>
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
     </form>
   </div>
