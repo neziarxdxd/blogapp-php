@@ -109,7 +109,7 @@
         if($_SESSION["name"]) {
             if(count($_POST)>0) {
                 // connect database 
-                $con = mysqli_connect('127.0.0.1:3306','root','','blog_database') or die('Unable To connect');
+                include 'connect.php';
                 
                 // get data blog story 
                 // TODOS: blog story, blog title, author, date of published,

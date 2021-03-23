@@ -37,7 +37,7 @@
         $full_content = "";
         $story_id = $_GET['blogstory'];
         $title_blog="";
-        $con = mysqli_connect('127.0.0.1:3306','root','','blog_database') or die('Unable To connect');
+        include 'connect.php';
         $sql ="SELECT * FROM `blog_user` WHERE blog_id=$story_id";
         $result = mysqli_query($con,$sql);
         if(mysqli_num_rows($result) > 0)  {

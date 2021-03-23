@@ -73,7 +73,7 @@ session_start();
           </div>
     </div>
     <?php
-    $con = mysqli_connect('127.0.0.1:3306','root','','blog_database') or die('Unable To connect');
+    include 'connect.php';
     $result = mysqli_query($con,"SELECT * FROM blog_user WHERE user_name='" . $_SESSION["id"]."' ORDER BY `blog_user`.`date_update` DESC  ");
   
     while($row = mysqli_fetch_array($result)){   
@@ -87,7 +87,9 @@ session_start();
           <div class='card-footer '>
          
           <a href='rewrite.php?edit-blog=".$row['blog_id']."' class='btn btn-primary'><i class='fas fa-edit'></i>Edit</a>&nbsp;
-          <a href='#' data-href='delete.php?id=23' data-toggle='modal' data-target='#confirm-delete'>Delete record #23</a>
+          <a href='#' data-href='delete.php?id=23' data-toggle='modal' class='btn btn-danger deleteButton' data-target='#confirm-delete'>
+          <i class='fa fa-trash-o fa-lg'></i>
+          Delete</a>
 
           </div>
           
@@ -99,7 +101,7 @@ session_start();
      }
 
     // <a href='' data-href='/delete.php' data-target='#exampleModal' data-toggle='modal' id='deleteBtnID'  class='btn btn-danger deleteButton'
-    // <i class='fa fa-trash-o fa-lg'></i> ?>
+    // ?>
 
 </div>
       </div>

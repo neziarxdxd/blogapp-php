@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $con = mysqli_connect('127.0.0.1:3306','root','','blog_database') or die('Unable To connect');
+    include 'connect.php';
     $message="";
 
     if(isset($_POST["register_button"])) {     
