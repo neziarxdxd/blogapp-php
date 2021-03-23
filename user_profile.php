@@ -84,13 +84,14 @@ session_start();
           <div class='card-body'>
           <div class=' h2 font-weight-bold'><a href='blog.php?blogstory=".$row['blog_id']."'>".$row['blog_title']."</a></div> 
           Date Publish: ".$newformat." </div>         
-          <div class='card-footer '><a href='rewrite.php?edit-blog=".$row['blog_id']."' class='btn btn-primary'><i class='fas fa-edit'></i>Edit</a>&nbsp;<a href='#' data-toggle='modal'  class='btn btn-danger deleteButton'><i class='fa fa-trash-o fa-lg'></i>Delete</a></div>
+          <div class='card-footer '><a href='rewrite.php?edit-blog=".$row['blog_id']."' class='btn btn-primary'><i class='fas fa-edit'></i>Edit</a>&nbsp;<a href='#' data-toggle='modal'  class='btn btn-danger deleteButton'><input type='hidden' id='deleteID' value='3487'><i class='fa fa-trash-o fa-lg'></i>Delete</a></div>
         </div><br>";  
                     
      }
 
      if(isset($_POST["delete_button"])){
-       echo "<script>console.log('test')</script>";
+       $name = $_POST['deleteBlog'];
+       echo "<script>console.log($name)</script>";
      }
     ?>
 
@@ -154,9 +155,11 @@ session_start();
       Do you want to delete this post?
       </div>
       <div class="modal-footer">
+        
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <form method="post">
-        <button type="button" name = "delete_button" class="btn btn-danger">Delete</button>
+        <input type="hidden" id="deleteBlog" name="deleteBlog" value="3487">
+        <input type="submit" name = "delete_button" class="btn btn-danger" value="Delete">
         </form>
       </div>
     </div>
@@ -173,17 +176,6 @@ session_start();
   <script src="js/main.min.js"></script>
   <script src="js/login-register.js" type="text/javascript"></script>
 
-  <script>
-$(document).ready(function(){
-  
-  $('.deleteButton').on(
-    'click',function(){
-      $('#exampleModal').modal('show');
-
-    }
-  );
-});
-</script>
 
         
        
