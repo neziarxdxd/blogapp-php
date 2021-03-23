@@ -84,13 +84,22 @@ session_start();
           <div class='card-body'>
           <div class=' h2 font-weight-bold'><a href='blog.php?blogstory=".$row['blog_id']."'>".$row['blog_title']."</a></div> 
           Date Publish: ".$newformat." </div>         
-          <div class='card-footer '><a href='rewrite.php?edit-blog=".$row['blog_id']."' class='btn btn-primary'><i class='fas fa-edit'></i>Edit</a>&nbsp;<a href='rewrite.php?edit-blog=$blog_id'  id='deleteBtnID'  class='btn btn-danger deleteButton'><input type='hidden' id='deleteID' value='$blog_id'><i class='fa fa-trash-o fa-lg'></i>Delete</a></div>
+          <div class='card-footer '>
+         
+          <a href='rewrite.php?edit-blog=".$row['blog_id']."' class='btn btn-primary'><i class='fas fa-edit'></i>Edit</a>&nbsp;
+          <a href='#' data-href='delete.php?id=23' data-toggle='modal' data-target='#confirm-delete'>Delete record #23</a>
+
+          </div>
+          
+         
+          
+          
         </div><br>";  
                     
      }
 
-   
-    ?>
+    // <a href='' data-href='/delete.php' data-target='#exampleModal' data-toggle='modal' id='deleteBtnID'  class='btn btn-danger deleteButton'
+    // <i class='fa fa-trash-o fa-lg'></i> ?>
 
 </div>
       </div>
@@ -139,28 +148,21 @@ session_start();
   
 
 
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Delte post</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">        
-      Do you want to delete this post?
-      </div>
-      <div class="modal-footer">
-        
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <form method="post">
-          <input type="text" id="deleteBlog" name="deleteBlog" value="mmm">
-          <input type="submit" name = "delete_button" class="btn btn-danger" value="Delete">
-        </form>
-      </div>
+  <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                ...
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-danger btn-ok">Delete</a>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
   
 
@@ -172,7 +174,12 @@ session_start();
   <!-- Custom scripts for this template -->
   <script src="js/main.min.js"></script>
   <script src="js/login-register.js" type="text/javascript"></script>
-
+  <script>
+ 
+ $('#confirm-delete').on('show.bs.modal', function(e) {
+    $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+});
+</script>
 
   
        
