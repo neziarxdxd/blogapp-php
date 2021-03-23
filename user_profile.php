@@ -79,20 +79,17 @@ session_start();
     while($row = mysqli_fetch_array($result)){   
         $time = strtotime($row['date_update']);
         $newformat = date('F j, Y',$time);
-          
+        $blog_id = $row['blog_id'];
         echo "  <div class='card'>      
           <div class='card-body'>
           <div class=' h2 font-weight-bold'><a href='blog.php?blogstory=".$row['blog_id']."'>".$row['blog_title']."</a></div> 
           Date Publish: ".$newformat." </div>         
-          <div class='card-footer '><a href='rewrite.php?edit-blog=".$row['blog_id']."' class='btn btn-primary'><i class='fas fa-edit'></i>Edit</a>&nbsp;<a href='#' data-toggle='modal'  class='btn btn-danger deleteButton'><input type='hidden' id='deleteID' value='3487'><i class='fa fa-trash-o fa-lg'></i>Delete</a></div>
+          <div class='card-footer '><a href='rewrite.php?edit-blog=".$row['blog_id']."' class='btn btn-primary'><i class='fas fa-edit'></i>Edit</a>&nbsp;<a href='rewrite.php?edit-blog=$blog_id'  id='deleteBtnID'  class='btn btn-danger deleteButton'><input type='hidden' id='deleteID' value='$blog_id'><i class='fa fa-trash-o fa-lg'></i>Delete</a></div>
         </div><br>";  
                     
      }
 
-     if(isset($_POST["delete_button"])){
-       $name = $_POST['deleteBlog'];
-       echo "<script>console.log($name)</script>";
-     }
+   
     ?>
 
 </div>
@@ -158,8 +155,8 @@ session_start();
         
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <form method="post">
-        <input type="hidden" id="deleteBlog" name="deleteBlog" value="3487">
-        <input type="submit" name = "delete_button" class="btn btn-danger" value="Delete">
+          <input type="text" id="deleteBlog" name="deleteBlog" value="mmm">
+          <input type="submit" name = "delete_button" class="btn btn-danger" value="Delete">
         </form>
       </div>
     </div>
@@ -177,7 +174,7 @@ session_start();
   <script src="js/login-register.js" type="text/javascript"></script>
 
 
-        
+  
        
     
 <?php

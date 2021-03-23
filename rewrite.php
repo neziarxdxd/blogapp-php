@@ -35,8 +35,16 @@
                     <textarea id="editor" name="blog_story" cols="30" rows="10"></textarea>
                     <br>
                
-                <div class="form-group">
+                <div class="row md-center" style="margin:10%;">
+               
                     <button onclick="testing()" class="btn btn-primary" id="submit" name="update_button">Submit new post</button>
+               
+                    <div style="margin-top: 2%;"></div>
+                    <button onclick="testing()" class="btn btn-danger" id="submit" name="update_button">Delete Post</button>
+                 
+                </div>
+                <div class="form-group">
+                    
                 </div>
             </form>
             </div>
