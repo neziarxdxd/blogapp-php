@@ -87,7 +87,7 @@ session_start();
           <div class='card-footer '>
          
           <a href='rewrite.php?edit-blog=".$row['blog_id']."' class='btn btn-primary'><i class='fas fa-edit'></i>Edit</a>&nbsp;
-          <a href='#' data-href='delete.php?id=23' data-toggle='modal' class='btn btn-danger deleteButton' data-target='#confirm-delete'>
+          <a href='#' data-href='delete.php?delete_id=$blog_id' data-toggle='modal' class='btn btn-danger deleteButton' data-target='#confirm-delete'>
           <i class='fa fa-trash-o fa-lg'></i>
           Delete</a>
 
