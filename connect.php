@@ -4,7 +4,7 @@
         $username= 'root';
         $password='';
         $database='blog_database';
-        $con = mysqli_connect($server,$username,$password,$database) or die('Unable To connect');
+        $con =new mysqli($server,$username,$password,$database) or die('Unable To connect');
     }
     catch(Exception $e){
     echo $e;     

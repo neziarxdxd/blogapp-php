@@ -1,5 +1,5 @@
 <?php
-    error_reporting(0);
+   // error_reporting(0);
     session_start();
     
 ?>
@@ -94,16 +94,24 @@
             require_once 'modules/Parsedown.php';
             $Parsedown = new Parsedown();
             
-            $story_id = $_GET['edit-blog'];
+      
             $full_content = "";
             include 'connect.php';
+            
+            $statement =  $con->prepare("SELECT * FROM `blog_user` WHERE blog_id=? and user_name=?");
+            $story_id = $_GET['edit-blog'];
             $user_name = $_SESSION['id'];
-            $sql ="SELECT blog_story,blog_id,blog_title FROM `blog_user` WHERE blog_id=$story_id and user_name='$user_name'";
+            echo $story_id;
+            echo $user_name;
+            $statement->bind_param("ss",$story_id,$user_name);
             
+            $statement->execute();
             
-            $result = mysqli_query($con,$sql);
+            $result = $statement->get_result();            
+            
+
             if(mysqli_num_rows($result) > 0)  {
-                while($row = mysqli_fetch_array($result)){                                  //return true;  
+                while($row = $result->fetch_assoc()){                                  //return true;  
                     $full_content = $row['blog_story'];
                     $_SESSION['blog_id'] = $row['blog_id'];
                    
