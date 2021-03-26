@@ -101,8 +101,7 @@
             $statement =  $con->prepare("SELECT * FROM `blog_user` WHERE blog_id=? and user_name=?");
             $story_id = $_GET['edit-blog'];
             $user_name = $_SESSION['id'];
-            echo $story_id;
-            echo $user_name;
+            
             $statement->bind_param("ss",$story_id,$user_name);
             
             $statement->execute();

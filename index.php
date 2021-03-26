@@ -5,21 +5,34 @@
 
     if(isset($_POST["register_button"])) {     
 
+     
+
+      
+      $sql_query = "SELECT * FROM user_name=? or email=?";
+      $statementQuery =  $con->prepare($sql_query);
+      $user_nameQuery = $_POST["user_name"];
+      $email_Query = $_POST["user_email"];
+      $statementQuery->bind_param("ss",$user_nameQuery,$email_Query);
+      $queryResult =$statementQuery->execute();
+
+
       $user_first_name = $_POST["user_first_name"];
       $user_last_name = $_POST["user_last_name"];
-
       $email = $_POST["user_email"];
-
       $password = $_POST["password"];
-      $user_name = $_POST["user_name"];
+      $user_name = $_POST["user_name"];      
+      $user_fullName = "$user_first_name $user_last_name";
       $hash = password_hash($password,PASSWORD_DEFAULT);
-      $sql_query = "SELECT * FROM user_name='$user_name' or email='$email'";
-      $sql = "INSERT INTO `login_user` (`user_name`, `first_name`, `last_name`, `email`, `password`,`full_name`) VALUES ('$user_name', '$user_first_name', '$user_last_name', '$email', '$hash','$user_first_name $user_last_name ');";
-      if($con->query($sql_query) === TRUE){
+
+      $sql_insert = "INSERT INTO `login_user` (`user_name`, `first_name`, `last_name`, `email`, `password`,`full_name`) VALUES (?,?,?,?,?);";
+      $statementInsert = $con->prepare($sql_insert);     
+      $statementInsert->bind_param("sssss", $user_name,$user_first_name,$user_last_name, $email, $hash,$user_fullName);
+      
+      if($queryResult){
           echo "There is existing email or username ";
       }
       else{
-          if ($con->query($sql) === TRUE) {
+          if ($statementInsert->execute()) {
               echo "New record created successfully";
               } else {
                 echo '<script>alert("Wrong User Details")</script>';
@@ -31,8 +44,13 @@
   
 
     if(isset($_POST["login_button"])) {
-       
-        $result = mysqli_query($con,"SELECT * FROM login_user WHERE user_name='" . $_POST["user_name"]."'");
+        
+        $statement =  $con->prepare("SELECT * FROM login_user WHERE user_name=?");
+        $userName=$_POST["user_name"];
+        $statement->bind_param("s",$userName);            
+        $statement->execute();            
+        $result = $statement->get_result();  
+
         
         if(mysqli_num_rows($result) > 0)  {
             while($row = mysqli_fetch_array($result)){
