@@ -1,6 +1,6 @@
 <?php
     try{
-        $server = 'https://remotemysql.com/';
+        $server = 'remotemysql.com';
         $username= '0eMCECZt9d';
         $password='FDWEJBIiNj';
         $database='0eMCECZt9d';
