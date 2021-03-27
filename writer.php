@@ -66,7 +66,7 @@
             <br>
             
                     <div class="form-group">
-                        <input onclick="testing()" type="submit" name="submit" class="btn btn-primary" id="submit"></button>
+                        <input  type="submit" name="submit" class="btn btn-primary" id="submit"></button>
                     
                     </div>
         
@@ -98,11 +98,7 @@
         });
     })
 	
-	function testing(){
-		var textGet=document.getElementById("editor").value;
-		console.log(textGet);
-		
-	}
+
 </script>
     <?php
         
@@ -120,15 +116,17 @@
                 
                 
 
-                $insert_data = mysqli_real_escape_string($con, $blog_story);
+               
                 // inserting data
-                $sql = "INSERT INTO `blog_user` (`blog_title`,`user_name`,`blog_story`) VALUES ('$blog_title','$user_id','$insert_data');";
+                $sql = "INSERT INTO `blog_user` (`blog_title`,`user_name`,`blog_story`) VALUES (?,?,?);";
+                $statement = $con->prepare($sql);
+                $statement->bind_param("sss",$blog_title,$user_id,$blog_story);
 
                 
                 
                 // messagge if recorded of not
                 // TODOS:pop up mesage  
-                if ($con->query($sql) === TRUE) {
+                if ($statement->execute()) {
                 echo "New record created successfully";
                 header("location:user_profile.php");
                 } else {
