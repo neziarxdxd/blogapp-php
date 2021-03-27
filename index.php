@@ -3,8 +3,19 @@
     include 'connect.php';
     $message="";
 
-    if(isset($_POST["register_button"])) {     
+    if(isset($_POST["register_button"])) {   
+    
+      $sql_query = "SELECT * FROM `login_user` WHERE user_name=? or email=?";
+      $statementQuery = $con->prepare($sql_query);
+      $email = $_POST["user_email"];     
+      $user_name = $_POST["user_name"];
+      $statementQuery->bind_param("ss",$user_name, $email);
+      $statementQuery->execute();
+            
+      $resultQuery = $statementQuery->get_result();
 
+      $sql = "INSERT INTO `login_user` (`user_name`, `first_name`, `last_name`, `email`, `password`,`full_name`) VALUES (?,?,?,?,?,?);";
+      $stmt = $con->prepare($sql);
       $user_first_name = $_POST["user_first_name"];
       $user_last_name = $_POST["user_last_name"];
       $email = $_POST["user_email"];
@@ -13,16 +24,6 @@
       $fullName = "$user_first_name $user_last_name";
       $hash = password_hash($password,PASSWORD_DEFAULT);
 
-      $sql_query = "SELECT * FROM `login_user` WHERE user_name=? or email=?";
-      $statementQuery = $con->prepare($sql_query);
-      $statementQuery->bind_param("ss",$user_name, $email);
-      $statementQuery->execute();
-            
-      $resultQuery = $statementQuery->get_result();
-
-      $sql = "INSERT INTO `login_user` (`user_name`, `first_name`, `last_name`, `email`, `password`,`full_name`) VALUES (?,?,?,?,?,?);";
-      $stmt = $con->prepare($sql);
-      
       $stmt->bind_param("ssssss",$user_name,$user_first_name,$user_last_name,$email,$hash,$fullName);
 
       

@@ -124,17 +124,18 @@
                 }       
             }  
             if(isset($_POST['update_button'])){
+               
+                
+                $insert_data = mysqli_real_escape_string($con, $blog_story);
+                // inserting data
+                $sql = "UPDATE `blog_user` SET `blog_title`=?, `date_update`=NOW() , `blog_story` =? WHERE `blog_id`=?;";
+                $statement = $con->prepare($sql);
                 $blog_story = $_POST["blog_story"];
                 $blog_title = $_POST["blog_title"];
                 $user_id = $_SESSION["id"];
         
                 $blog_id = $_SESSION['blog_id'];          
                 $today = date("Y-m-d h:i:s");
-                
-                $insert_data = mysqli_real_escape_string($con, $blog_story);
-                // inserting data
-                $sql = "UPDATE `blog_user` SET `blog_title`=?, `date_update`=NOW() , `blog_story` =? WHERE `blog_id`=?;";
-                $statement = $con->prepare($sql);
                 $statement->bind_param("sss",$blog_title,$insert_data,$blog_id);
 
                 if ($statement->execute()) {

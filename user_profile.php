@@ -104,8 +104,7 @@ session_start();
                     
      }
 
-    // <a href='' data-href='/delete.php' data-target='#exampleModal' data-toggle='modal' id='deleteBtnID'  class='btn btn-danger deleteButton'
-    // ?>
+     ?>
 
 </div>
       </div>
