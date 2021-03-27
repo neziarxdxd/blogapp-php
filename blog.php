@@ -92,7 +92,7 @@
     ?>
 
     <div>
-    <span class="subheading"><a href="">Download PDF &nbsp;<i class='fa fa-download'></a></i></span>
+    <span class="subheading"><a href=<?php echo "render.php?blogstory=$story_id" ?>>Download PDF &nbsp;<i class='fa fa-download'></a></i></span>
     </div>
 </div>
       </div>
