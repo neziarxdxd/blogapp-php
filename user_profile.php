@@ -82,7 +82,7 @@ session_start();
         $blog_id = $row['blog_id'];
         echo "  <div class='card'>      
           <div class='card-body'>
-          <div class=' h2 font-weight-bold'><a href='blog.php?blogstory=".$row['blog_id']."'>".$row['blog_title']."</a></div> 
+          <div class=' h2 font-weight-bold'><a href='blog.php?blogstory=".$row['blog_id']."'>".htmlspecialchars($row['blog_title'])."</a></div> 
           Date Publish: ".$newformat." </div>         
           <div class='card-footer '>
          

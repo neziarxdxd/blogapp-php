@@ -10,14 +10,27 @@
       $email = $_POST["user_email"];
       $password = $_POST["password"];
       $user_name = $_POST["user_name"];
+      $fullName = "$user_first_name $user_last_name";
       $hash = password_hash($password,PASSWORD_DEFAULT);
-      $sql_query = "SELECT * FROM user_name='$user_name' or email='$email'";
-      $sql = "INSERT INTO `login_user` (`user_name`, `first_name`, `last_name`, `email`, `password`,`full_name`) VALUES ('$user_name', '$user_first_name', '$user_last_name', '$email', '$hash','$user_first_name $user_last_name ');";
-      if($con->query($sql_query) === TRUE){
+
+      $sql_query = "SELECT * FROM `login_user` WHERE user_name=? or email=?";
+      $statementQuery = $con->prepare($sql_query);
+      $statementQuery->bind_param("ss",$user_name, $email);
+      $statementQuery->execute();
+            
+      $resultQuery = $statementQuery->get_result();
+
+      $sql = "INSERT INTO `login_user` (`user_name`, `first_name`, `last_name`, `email`, `password`,`full_name`) VALUES (?,?,?,?,?,?);";
+      $stmt = $con->prepare($sql);
+      
+      $stmt->bind_param("ssssss",$user_name,$user_first_name,$user_last_name,$email,$hash,$fullName);
+
+      
+      if(mysqli_num_rows($resultQuery) > 0){
           echo "There is existing email or username ";
       }
       else{
-          if ($con->query($sql) === TRUE) {
+          if ($stmt->execute()) {
               echo "New record created successfully";
               } else {
                 echo '<script>alert("Wrong User Details")</script>';

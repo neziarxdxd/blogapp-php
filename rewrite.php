@@ -134,7 +134,7 @@
                 
                 $insert_data = mysqli_real_escape_string($con, $blog_story);
                 // inserting data
-                $sql = "UPDATE `blog_user` SET `date_update` = '$today_date',`blog_title` = '$blog_title', `blog_story` = '$insert_data' WHERE `blog_id` = $blog_id;";
+                $sql = "UPDATE `blog_user` SET `blog_title` = '$blog_title', `blog_story` = '$insert_data' WHERE `blog_id` = $blog_id;";
                 
                 if ($con->query($sql) === TRUE) {
                     

@@ -68,6 +68,7 @@ session_start();
   
     while($row = mysqli_fetch_array($result)){   
         $title = $row['blog_title'];
+        $blogID = $row['blog_id'];
         $full_name = $row['first_name'] . " ".$row['last_name'];
         $time = strtotime($row['date_update']);
         $newformat = date('F j, Y',$time);
@@ -77,7 +78,9 @@ session_start();
         <div class='post-preview'>
          
             <h2 class='post-title'>
+            <a href='blog.php?blogstory=$blogID'>
              $title
+             </a>
             </h2>
         
           <p class='post-meta'>Posted by

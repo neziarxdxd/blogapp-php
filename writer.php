@@ -122,7 +122,7 @@
 
                 $insert_data = mysqli_real_escape_string($con, $blog_story);
                 // inserting data
-                $sql = "INSERT INTO `blog_user` (`blog_title`,`user_name`,`blog_story`, `date_update`,`date_publish`) VALUES ('$blog_title','$user_id','$insert_data','$today','$today');";
+                $sql = "INSERT INTO `blog_user` (`blog_title`,`user_name`,`blog_story`) VALUES ('$blog_title','$user_id','$insert_data');";
 
                 
                 
