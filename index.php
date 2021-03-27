@@ -149,7 +149,7 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <?php
-    $con = mysqli_connect('127.0.0.1:3306','root','','blog_database') or die('Unable To connect');
+   include 'connect.php';
     $result = mysqli_query($con,"SELECT blog_user.*, login_user.first_name,login_user.last_name FROM `blog_user` inner join login_user on blog_user.user_name = login_user.user_name order by date_update desc");
   
     while($row = mysqli_fetch_array($result)){   
