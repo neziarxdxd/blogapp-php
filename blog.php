@@ -35,11 +35,16 @@
         require_once 'modules/Parsedown.php';
         $Parsedown = new Parsedown();
         $full_content = "";
-        $story_id = $_GET['blogstory'];
+       
         $title_blog="";
         include 'connect.php';
-        $sql ="SELECT * FROM `blog_user` WHERE blog_id=$story_id";
-        $result = mysqli_query($con,$sql);
+        $sql ="SELECT * FROM `blog_user` WHERE blog_id=?";
+        $story_id = $_GET['blogstory'];
+        $statement = $con->prepare($sql); 
+        $statement->bind_param("s",$story_id);            
+        $statement->execute();            
+        $result = $statement->get_result(); 
+       
         if(mysqli_num_rows($result) > 0)  {
             while($row = mysqli_fetch_array($result)){                                  //return true;  
                 $full_content = $row['blog_story'];

@@ -74,8 +74,12 @@ session_start();
     </div>
     <?php
     include 'connect.php';
-    $result = mysqli_query($con,"SELECT * FROM blog_user WHERE user_name='" . $_SESSION["id"]."' ORDER BY `blog_user`.`date_update` DESC  ");
-  
+    
+    $statement = $con->prepare("SELECT * FROM blog_user WHERE user_name=? ORDER BY `blog_user`.`date_update` DESC");
+    $sessionID= $_SESSION["id"];    
+    $statement->bind_param("s",$sessionID);            
+    $statement->execute();            
+    $result = $statement->get_result(); 
     while($row = mysqli_fetch_array($result)){   
         $time = strtotime($row['date_update']);
         $newformat = date('F j, Y',$time);
