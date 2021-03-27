@@ -197,11 +197,6 @@ session_start();
   <script src="js/main.min.js"></script>
   <script src="js/login-register.js" type="text/javascript"></script>
 
-
-
-        
-       
-    
 <?php
     }
     else {

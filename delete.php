@@ -6,16 +6,12 @@ session_start();
             <?php                         
             
             
-            include 'connect.php';
-                
+            include 'connect.php';               
              
-                $sql = "DELETE FROM `blog_user` WHERE blog_id=? and user_name=? ";
-
-              
+                $sql = "DELETE FROM `blog_user` WHERE blog_id=? and user_name=? ";   
+                $statement = $con->prepare($sql); 
                 $user_id = $_SESSION["id"];        
                 $blog_id = $_GET['delete_id'];
-
-                $statement = $con->prepare($sql); 
                 $statement->bind_param("ss",$blog_id,$user_id);            
                         
                 
