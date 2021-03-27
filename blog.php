@@ -67,6 +67,7 @@
         <div class="site-heading">
             <h1><?php echo $title_blog; ?></h1>
             <span class="subheading"> <?php echo $_SESSION["name"]; ?></span>
+            
           </div>
         </div>
       </div>
@@ -90,16 +91,20 @@
         echo $Parsedown->parse($full_content);
     ?>
 
-
+    <div>
+    <span class="subheading"><a href="">Download PDF &nbsp;<i class='fa fa-download'></a></i></span>
+    </div>
 </div>
       </div>
     </div>
+    
   </div>
 
   <hr>
-
+  
   <!-- Footer -->
   <footer>
+
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
