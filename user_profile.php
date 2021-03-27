@@ -158,10 +158,10 @@ session_start();
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                ...
+                <b>Delete Blog</b>
             </div>
             <div class="modal-body">
-                ...
+                Do you want to delete this? 
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

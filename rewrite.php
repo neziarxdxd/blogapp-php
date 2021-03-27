@@ -128,15 +128,16 @@
                 $blog_title = $_POST["blog_title"];
                 $user_id = $_SESSION["id"];
         
-                $blog_id = $_SESSION['blog_id'];
-               
-                $today_date = date("Y-m-d");
+                $blog_id = $_SESSION['blog_id'];          
+                $today = date("Y-m-d h:i:s");
                 
                 $insert_data = mysqli_real_escape_string($con, $blog_story);
                 // inserting data
-                $sql = "UPDATE `blog_user` SET `blog_title` = '$blog_title', `blog_story` = '$insert_data' WHERE `blog_id` = $blog_id;";
-                
-                if ($con->query($sql) === TRUE) {
+                $sql = "UPDATE `blog_user` SET `blog_title`=?, `date_update`=NOW() , `blog_story` =? WHERE `blog_id`=?;";
+                $statement = $con->prepare($sql);
+                $statement->bind_param("sss",$blog_title,$insert_data,$blog_id);
+
+                if ($statement->execute()) {
                     
                     echo "<script>window.location.href='user_profile.php';</script>";
                     exit;
