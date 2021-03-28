@@ -1,9 +1,9 @@
 <?php
     try{
-        $server = 'remotemysql.com';
-        $username= '0eMCECZt9d';
-        $password='FDWEJBIiNj';
-        $database='0eMCECZt9d';
+        $server = 'localhost';
+        $username= 'root';
+        $password='';
+        $database='blog_database';
         $con =new mysqli($server,$username,$password,$database) or die('Unable To connect');
     }
     catch(Exception $e){

@@ -7,52 +7,98 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>New Blog Post Template | PrepBootstrap</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="icon" href="img/logo2.png">
+  <title>Blog Matters</title>
+
+  
 
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <!--   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> -->
 
     <link rel="stylesheet" type="text/css" href="font-awesome-2/css/font-awesome.min.css" />
+
     <script type="text/javascript" src="js-2/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="bootstrap-2/js/bootstrap.min.js"></script>
+
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+ <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <!-- Custom styles for this template -->
+  <link href="css/main.css" rel="stylesheet"/>
+  <link href="css/login-register.css" rel="stylesheet" />
 </head>
 <body>
 
 
+ <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+     <div class="container-fluid">
+     <a class="navbar-brand" href="index.html"><img style ="max-height:100px; "src="img/logo.png" p></a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Logout</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('img/userprof.jpg')">
+     <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Welcome Back!</h1>
+            <span class="subheading">Name</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 
 
 <!-- New Blog Post - START -->
     <div class="container">
     <div class="row" id="row_style">
-        <h4 class="text-center">Submit new post</h4>
+        <h4 class="display-4">Update Your Story Here:</h4>
         <div class="col-md-12   col-md-offset-12">
-                <form method="POST">
-                <div class="form-group">
-                
-                    <input type="text" id="title_edit"  name="blog_title" class="form-control" placeholder="Title">
-                </div>
-                    <textarea id="editor" name="blog_story" cols="30" rows="10"></textarea>
-                    <br>
-               
-                <div class="row md-center" style="margin:10%;">
-               
-                    <button onclick="testing()" class="btn btn-primary" id="submit" name="update_button">Submit new post</button>
-               
-                    <div style="margin-top: 2%;"></div>
-                    <button onclick="testing()" class="btn btn-danger" id="submit" name="update_button">Delete Post</button>
-                 
-                </div>
-                <div class="form-group">
-                    
-                </div>
-            </form>
+
             </div>
         </div>
-
-        </div>
-    </div>
+ <div class="card" style="width: 100;">
+  <form method="POST">
+    <div class="card-header"> <div class="form-group">
+                
+                    <input type="text" id="title_edit"  name="blog_title" class="form-control" placeholder="Title">
+                </div></div>
+    <div class="card-body "> <textarea id="editor" name="blog_story" cols="30" rows="10"></textarea>
+                    </div> 
+    <div class="card-footer pull-right"><button name="update_button" href="#" class="btn btn-primary" onClick="testing()" ><i class="fa fa-check-square fa-lg"></i> Submit</button>
+    &nbsp;<a href="#" class="btn btn-danger" onmousedown="testing()" ><i class="fa fa-window-close fa-lg"></i> Cancel</a>
 </div>
+  </form>
+  </div>
+ </div>
+
 
 <style>
     #row_style {
@@ -85,8 +131,8 @@
 <!-- New Blog Post - END -->
 
 </div>
-
-    <?php
+<!--  <script src="vendor/jquery/jquery.min.js"></script> -->
+<?php
         if($_SESSION["name"]) {
             ?>
             <?php
@@ -126,13 +172,14 @@
             if(isset($_POST['update_button'])){
                
                 
-                $insert_data = mysqli_real_escape_string($con, $blog_story);
+               
                 // inserting data
                 $sql = "UPDATE `blog_user` SET `blog_title`=?, `date_update`=NOW() , `blog_story` =? WHERE `blog_id`=?;";
                 $statement = $con->prepare($sql);
                 $blog_story = $_POST["blog_story"];
                 $blog_title = $_POST["blog_title"];
                 $user_id = $_SESSION["id"];
+             $insert_data = mysqli_real_escape_string($con, $blog_story);
         
                 $blog_id = $_SESSION['blog_id'];          
                 $today = date("Y-m-d h:i:s");
@@ -162,5 +209,18 @@
         };
     ?>
 
+
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/main.min.js"></script>
+  <script src="js/login-register.js" type="text/javascript"></script>
+
 </body>
 </html>
+
+
+
+
+
+   
