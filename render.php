@@ -40,7 +40,7 @@ $htmlDesign ="
 
 <div class='body' style='padding-left:50px; padding-right:50px'>
 <div class='header' style='padding-bottom:20px;'>
-<div class='title' style='text-align:left; font-size: 28pt; font-weight:900; padding-bottom:20px;'>$title_blog</div>
+<div class='title' style='text-align:left; font-size: 36pt; font-weight:900; padding-bottom:20px;'>$title_blog</div>
 <div class='title' style='text-align:left; font-size: 12pt;'><b>Written by: </b>  <i>$author</i></div>
 <div class='title' style='text-align:left; font-size: 12pt;'><b>Date Published: </b>  <i>$datePublish</i></div>
 </div>

@@ -109,10 +109,7 @@
                 
                 // get data blog story 
                 // TODOS: blog story, blog title, author, date of published,
-                $blog_story = $_POST["blog_story"];
-                $blog_title = $_POST['blog_title'];
-                $user_id = $_SESSION["id"]; 
-                $today = date("Y-m-d h:i:s");
+                
                 
                 
 
@@ -120,6 +117,10 @@
                 // inserting data
                 $sql = "INSERT INTO `blog_user` (`blog_title`,`user_name`,`blog_story`,`date_publish`) VALUES (?,?,?,NOW());";
                 $statement = $con->prepare($sql);
+                $blog_story = $_POST["blog_story"];
+                $blog_title = $_POST['blog_title'];
+                $user_id = $_SESSION["id"]; 
+                $today = date("Y-m-d h:i:s");
                 $statement->bind_param("sss",$blog_title,$user_id,$blog_story);
 
                 

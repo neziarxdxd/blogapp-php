@@ -88,10 +88,10 @@
               
     
         
-        echo $Parsedown->parse($full_content);
+        echo $full_content;
     ?>
 
-    <div>
+    <div style="padding-top: 50px;">
     <span class="subheading"><a href=<?php echo "render.php?blogstory=$story_id" ?>>Download PDF &nbsp;<i class='fa fa-download'></a></i></span>
     </div>
 </div>
