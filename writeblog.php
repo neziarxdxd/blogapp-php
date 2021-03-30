@@ -114,12 +114,6 @@ session_start();
     </div>
   </footer>
 
-  
-
-
-
-  
-
 <!-- -->
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
