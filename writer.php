@@ -21,38 +21,34 @@
     
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
 
     <!-- ADD -->
 
     
 </head>
+<style>
+.navbar{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color:#212529;
+    font-family:Open Sans;
+    font-weight: bold;
+
+}
+.space{
+    padding-right: 30px;
+    padding-left: 30px;
+}
+</style>
 <body>
 
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-     <ul  class="navbar-nav mr-auto">
-        <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-     </ul>
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
-    </form>
-  </div>
-</nav>
+<!-- --->
+<?php include 'navbar-2.php'; ?>
+
 <!-- New Blog Post - START -->
 <div class="container">
     <div class="row" id="row_style">
@@ -129,7 +125,9 @@
                 // TODOS:pop up mesage  
                 if ($statement->execute()) {
                 echo "New record created successfully";
-                header("location:user_profile.php");
+                echo "<script>window.location.href='user_profile.php';</script>";
+                exit;
+
                 } else {
                 echo "Error: " . $sql . "<br>" . $con->error;
                 }
