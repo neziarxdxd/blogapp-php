@@ -18,7 +18,7 @@
         <a class="nav-link " href="user_profile.php">Profile</a>
       </li>
       <li class="nav-item space">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+      <a class="nav-link " href="logout.php">Logout</a>
       </li>
      </ul>
      

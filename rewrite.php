@@ -133,7 +133,7 @@
                 $blog_story = $_POST["blog_story"];
                 $blog_title = $_POST["blog_title"];
                 $user_id = $_SESSION["id"];
-                $insert_data = mysqli_real_escape_string($con, $blog_story);
+                $insert_data =$blog_story;
         
                 $blog_id = $_SESSION['blog_id'];          
                 $today = date("Y-m-d h:i:s");

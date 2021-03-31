@@ -157,13 +157,16 @@
         $full_name = $row['first_name'] . " ".$row['last_name'];
         $time = strtotime($row['date_update']);
         $newformat = date('F j, Y',$time);
+        $blogID= $row['blog_id'];
           
         echo " 
         <hr>
         <div class='post-preview'>
          
             <h2 class='post-title'>
+            <a href='view_blog.php?blogstory=$blogID'>
              $title
+             </a>
             </h2>
         
           <p class='post-meta'>Posted by

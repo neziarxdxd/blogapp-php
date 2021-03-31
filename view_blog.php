@@ -30,12 +30,12 @@
   <!-- Navigation -->
   <?php include 'navbar.php'?>
   <?php
-    if($_SESSION["name"]) {
+  
     
         require_once 'modules/Parsedown.php';
         $Parsedown = new Parsedown();
         $full_content = "";
-        $full_name="";
+       $full_name="";
         $title_blog="";
         include 'connect.php';
         $sql ="SELECT blog_user.*, login_user.full_name FROM `blog_user` inner join login_user on blog_user.user_name = login_user.user_name WHERE blog_id=?";
@@ -91,14 +91,12 @@
         
         echo $full_content;
     ?>
-
     <div style="padding-top: 50px;">
     <span class="subheading"><a href=<?php echo "render.php?blogstory=$story_id" ?>>Download PDF &nbsp;<i class='fa fa-download'></a></i></span>
     </div>
 </div>
       </div>
-    </div>
-    
+    </div>    
   </div>
 
   <hr>
@@ -180,12 +178,6 @@ $(document).ready(function(){
 });
 </script>
        
-    
-<?php
-    }
-    else {
-        header("Location:index.php");
-    };
-?>
+
 </body>
 </html>
