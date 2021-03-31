@@ -79,19 +79,12 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <div class="container">
-    <div class="container">
-   
+      <div class="container">
+    <div class="container">   
     </div>
-
-
-    <?php    
-              
-    
-        
+    <?php 
         echo $full_content;
     ?>
-
     <div style="padding-top: 50px;">
     <span class="subheading"><a href=<?php echo "render.php?blogstory=$story_id" ?>>Download PDF &nbsp;<i class='fa fa-download'></a></i></span>
     </div>
@@ -139,13 +132,7 @@
         </div>
       </div>
     </div>
-  </footer>
-
-  
-
-
-  
-  
+  </footer> 
 
 <!-- -->
   <!-- Bootstrap core JavaScript -->
@@ -159,16 +146,6 @@
 
   <script>
 $(document).ready(function(){
-  
-//   $( "[id='deleteID']" ) .each(function(){
-//       console.log($(this).val())
-// })
-
-
-// $("[id='#deleteID']").click(function(e) {  
-//       alert(1);
-//     });
-
   $("deleteBtnID").on(
     'click',function(){
       var textx = $("deleteID").val();
