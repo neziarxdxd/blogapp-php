@@ -1,4 +1,4 @@
-# blogapp-php
+# blogapp-php-2
 
 ## RESOURCES:
 
