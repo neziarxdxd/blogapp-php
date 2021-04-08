@@ -22,7 +22,7 @@
   <!-- Custom styles for this template -->
   <link href="css/main.css" rel="stylesheet">
   <link href="css/login-register.css" rel="stylesheet" />
-
+  
 </head>
 
 <body>
@@ -37,15 +37,15 @@
 
     ?>
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('img/home-bg.jpg')">
+  <header class="masthead" style="background-image: url('img/settings.jpg')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
         <div class="site-heading">
             <h1>SETTINGS</h1>
-            <span class="subheading"> SETTINGS</span>
-            
+            <!-- <span class="subheading"> SETTINGS</span>
+             -->
           </div>
         </div>
       </div>
@@ -59,8 +59,32 @@
       <div class="container">
     <div class="container">   
     </div>
-    <?php 
-         ?>
+      <table class="form-group" style="font-family: Arial, Helvetica, sans-serif;" >
+        <tr>
+          <td style="padding-right: 30px;">First Name: </td>
+          <td><input class="form-control" type="text" name="Name" id="Name"></td>
+        </tr>
+
+        <tr>
+          <td style="padding-right: 30px;">Last Name: </td>
+          <td><input class="form-control" type="text" name="Name" id="Name"></td>
+        </tr>
+        <tr>
+          <td style="padding-right: 30px;">Email: </td>
+          <td><input class="form-control" type="text" name="Name" id="Name"></td>
+        </tr>
+
+        <tr>
+          <td style="padding-right: 30px;">Password: </td>
+          <td><input class="form-control" type="text" name="Name" id="Name"></td>
+        </tr>
+
+       
+      </table>
+
+      <button class='btn btn-primary'>Save</button>
+
+      <button class='btn btn-danger'>Cancel</button>
     <div style="padding-top: 50px;">
     </div>
 </div>
