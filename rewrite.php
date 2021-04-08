@@ -149,12 +149,7 @@
                     echo "Error: " . $sql . "<br>" . $con->error;
                 }
 
-            }        
-
-
-          
-    
-            
+            }
             ?><?php
     ?><?php
     }

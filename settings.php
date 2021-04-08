@@ -32,30 +32,7 @@
   <?php
     if($_SESSION["name"]) {
     
-        require_once 'modules/Parsedown.php';
-        $Parsedown = new Parsedown();
-        $full_content = "";
-        $full_name="";
-        $title_blog="";
-        include 'connect.php';
-        $sql ="SELECT blog_user.*, login_user.full_name FROM `blog_user` inner join login_user on blog_user.user_name = login_user.user_name WHERE blog_id=?";
-        $story_id = $_GET['blogstory'];
-        $statement = $con->prepare($sql); 
-        $statement->bind_param("s",$story_id);            
-        $statement->execute();            
-        $result = $statement->get_result(); 
        
-        if(mysqli_num_rows($result) > 0)  {
-            while($row = mysqli_fetch_array($result)){                                  //return true;  
-                $full_content = $row['blog_story'];
-                $title_blog = $row['blog_title'];
-                $full_name = $row['full_name'];
-                
-            }       
-        }
-        else{
-        echo "error";
-        }
 
 
     ?>
@@ -66,8 +43,8 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
         <div class="site-heading">
-            <h1><?php echo $title_blog; ?></h1>
-            <span class="subheading"> <?php echo $full_name; ?></span>
+            <h1>SETTINGS</h1>
+            <span class="subheading"> SETTINGS</span>
             
           </div>
         </div>
@@ -83,10 +60,8 @@
     <div class="container">   
     </div>
     <?php 
-        echo $full_content;
-    ?>
+         ?>
     <div style="padding-top: 50px;">
-    <span class="subheading"><a href=<?php echo "render.php?blogstory=$story_id" ?>>Download PDF &nbsp;<i class='fa fa-download'></a></i></span>
     </div>
 </div>
       </div>
