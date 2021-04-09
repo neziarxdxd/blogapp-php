@@ -3,11 +3,8 @@
 session_start();
         if($_SESSION["name"]) {
             ?>
-            <?php                         
-            
-            
-            include 'connect.php';               
-             
+            <?php
+            include 'connect.php';            
                 $sql = "DELETE FROM `blog_user` WHERE blog_id=? and user_name=? ";   
                 $statement = $con->prepare($sql); 
                 $user_id = $_SESSION["id"];        
@@ -22,12 +19,6 @@ session_start();
                 else {
                     echo "Error: " . $sql . "<br>" . $con->error;
                 }
-
-                
-
-
-          
-    
             
             ?><?php
     ?><?php
