@@ -16,7 +16,7 @@
             <a class="nav-link" href="user_profile.php">Profile</a>
           </li>
           <li class="nav-item">
-          <a href="logout.php" class="nav-link">Logout.</a>            
+          <a href="logout.php" class="nav-link">Logout</a>            
           </li>       
            </li>
         </ul>

@@ -22,30 +22,40 @@
   <!-- Custom styles for this template -->
   <link href="css/main.css" rel="stylesheet">
   <link href="css/login-register.css" rel="stylesheet" />
-  
+
 </head>
 
 <body>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html"><img style ="max-height:100px; "src="img/logo.png" p></a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.php">Back</a>
+          </li>
 
+        </ul>
+      </div>
+    </div>
+  </nav>
   <!-- Navigation -->
-  <?php include 'navbar.php'?>
-  <?php
-    if($_SESSION["name"]) {
-    
-       
 
-
-    ?>
+ 
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('img/settings.jpg')">
+  <header class="masthead" style="background-image: url('img/home-bg.jpg')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
         <div class="site-heading">
-            <h1>SETTINGS</h1>
-            <!-- <span class="subheading"> SETTINGS</span>
-             -->
+            <h1>Documentation</h1>
+            <span class="subheading">Blog Matters Official Documentation</span>
+            
           </div>
         </div>
       </div>
@@ -56,41 +66,15 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-      <div class="container">
-    <div class="container">   
+        <div class="container">
+    <div class="container">
+   
     </div>
-      <table class="form-group" style="font-family: Arial, Helvetica, sans-serif;" >
-        <tr>
-          <td style="padding-right: 30px;">First Name: </td>
-          <td><input class="form-control" type="text" name="Name" id="Name"></td>
-        </tr>
-
-        <tr>
-          <td style="padding-right: 30px;">Last Name: </td>
-          <td><input class="form-control" type="text" name="Name" id="Name"></td>
-        </tr>
-        <tr>
-          <td style="padding-right: 30px;">Email: </td>
-          <td><input class="form-control" type="text" name="Name" id="Name"></td>
-        </tr>
-
-        <tr>
-          <td style="padding-right: 30px;">Password: </td>
-          <td>      <button class='btn btn-warning'>Change Password</button></td>
-        </tr>
-
-       
-      </table>
-
-      <button class='btn btn-primary'>Save</button>
-      &nbsp;&nbsp;
-      <button class='btn btn-danger'>Cancel</button>
-    <div style="padding-top: 50px;">
-    </div>
+    <h1>BLOG MATTERS</h1><div>by Group 2</div><div><br></div><div>Created by:</div><div><br></div><div><ul><li>Joash Requiez</li><li>Joshua Bautista</li><li>Raizen Sangalang</li></ul></div><h2>What it does</h2><div>Our project addresses the writing blog by doing an application that does blog writing with formatting for the ease of making blogs.</div><div><br></div><h2>How We built it</h2><div>Our team used PHP, HTML, XAMPP+SQL, CSS, JavaScript, and deployed our project to localhost. for ease of access!</div><div><br></div><h2>Challenges We ran into</h2><div>This was our first project that related to web development, We didn't know how to code before this semester! we didn't know how to reach the egress point of our simulated service. Whatever you ran into, overcame, or we're unable to solve, let everyone know here.</div><div><br></div><h2>Accomplishments that We are proud of</h2><div>The download feature application, it is really awesome to see what you write is actually printable and downloadable</div><div><br></div><h2>What we learned</h2><div>Check out some of these photos of our hack in action!!</div><div>Built With</div><div><ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>JQuery</li><li>PDF Module</li><li>SQL</li><li>PHP</li></ul></div><h1>Thank you !!!</h1>    <div style="padding-top: 50px;">
+    <span class="subheading"><a href="http://localhost/blogapp-php/render.php?blogstory=1082">Download PDF &nbsp;<i class="fa fa-download"></i></a></span> </div>
 </div>
       </div>
-    </div>
-    
+    </div>    
   </div>
 
   <hr>
@@ -131,7 +115,13 @@
         </div>
       </div>
     </div>
-  </footer> 
+  </footer>
+
+  
+
+
+  
+  
 
 <!-- -->
   <!-- Bootstrap core JavaScript -->
@@ -145,6 +135,16 @@
 
   <script>
 $(document).ready(function(){
+  
+//   $( "[id='deleteID']" ) .each(function(){
+//       console.log($(this).val())
+// })
+
+
+// $("[id='#deleteID']").click(function(e) {  
+//       alert(1);
+//     });
+
   $("deleteBtnID").on(
     'click',function(){
       var textx = $("deleteID").val();
@@ -156,12 +156,6 @@ $(document).ready(function(){
 });
 </script>
        
-    
-<?php
-    }
-    else {
-        header("Location:index.php");
-    };
-?>
+
 </body>
 </html>

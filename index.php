@@ -28,7 +28,7 @@
 
       
       if(mysqli_num_rows($resultQuery) > 0){
-          echo "There is existing email or username ";
+          echo "<div class='danger-sign' style='text-align:center;'>There is existing email or username</div> ";
       }
       else{
           if ($stmt->execute()) {
@@ -95,7 +95,11 @@
   <!-- Custom styles for this template -->
   <link href="css/main.css" rel="stylesheet">
   <link href="css/login-register.css" rel="stylesheet" />
-
+  <style>
+  .danger-sign{
+    background-color: #f1aeb5;
+  }
+  </style>
 </head>
 
 <body>
@@ -111,12 +115,13 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.html">Docs</a>
+            <a class="nav-link" href="docs.php">Docs</a>
           </li>
-         
+          
+             
         
           <li class="nav-item">
             <a class="nav-link" data-toggle="modal" href="javascript:void(0)" onmousedown="openLoginModal();">Log in</a>
@@ -175,10 +180,9 @@
         </div>
        
         ";}?>
-        <hr>
+        
         <!-- Pager -->
         <div class="clearfix">
-          <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
         </div>
       </div>
     </div>
@@ -243,7 +247,7 @@
                                 <div class="error"></div>
                                 <div class="form loginBox">
                                     <form method="post" action="" accept-charset="UTF-8">
-                                    <input id="email" class="form-control" type="text" placeholder="Email" name="user_name">
+                                    <input id="email" class="form-control" type="text" placeholder="Username" name="user_name">
                                     <input id="password" class="form-control" type="password" placeholder="Password" name="password">
                                      <input class="btn btn-default btn-login" name ="login_button" type="submit" value="Login" >
                                     </form>
@@ -257,7 +261,7 @@
                                 <form method="post" html="{:multipart=>true}" data-remote="true" action="" accept-charset="UTF-8">
                                 <input placeholder="First Name" class="form-control" type="text" name="user_first_name" onkeyup="preview()" id="user_first" required>
                                 <input placeholder="Last Name"  class="form-control" type="text" name="user_last_name" onkeyup="preview()" id="user_last" required>
-                                <input placeholder="User Name" class="form-control" type="text" name = "user_name" id="userName" required>
+                                <input placeholder="Username" class="form-control" type="text" name = "user_name" id="userName" required>
                                 <input placeholder="Email" class="form-control" type="text" name="user_email" required>
                                 <input placeholder="Password" class="form-control" type="password" name="password" required>
                                 <input class="btn btn-default btn-register" type="submit" value="Create account" name="register_button">
