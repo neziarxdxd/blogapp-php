@@ -36,5 +36,6 @@ The download feature application, it is really awesome to see what you write is 
 - PDF Module
 - SQL
 - PHP
+- blog writer
 
 # Thank you !!!
